@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/splash"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        fresco:actualImageScaleType="centerInside"
+        fresco:actualImageUri="{splashModel.}" />
+
+
+    <FrameLayout
+        android:id="@+id/skip_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|right|top"
+        android:paddingBottom="20.0dip"
+        android:paddingLeft="12.0dip"
+        android:paddingRight="12.0dip"
+        android:paddingTop="12.0dip"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/skip"
+            android:layout_width="72.0dip"
+            android:layout_height="32.0dip"
+            android:background="@drawable/btn_black_transparent40_shape"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="14.0sp" />
+    </FrameLayout>
+
+</FrameLayout>

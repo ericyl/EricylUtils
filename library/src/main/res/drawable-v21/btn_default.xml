@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?attr/colorButtonActive">
+    <item>
+        <selector>
+            <item
+                android:drawable="@drawable/btn_default_shape"
+                android:state_enabled="true" />
+            <item
+                android:drawable="@drawable/btn_inactive_shape"
+                android:state_enabled="false" />
+            <!--<item-->
+            <!--android:drawable="@drawable/btn_default_shape"-->
+            <!--android:state_pressed="true" />-->
+            <!--<item-->
+            <!--android:drawable="@drawable/btn_default_shape"-->
+            <!--android:state_focused="true" />-->
+        </selector>
+    </item>
+</ripple>

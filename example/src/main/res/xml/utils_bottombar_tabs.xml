@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        icon="@drawable/ic_view_quilt_white_24dp"
+        id="@id/tab_ui_utils"
+        activeColor="@color/blue"
+        title="@string/ui" />
+    <tab
+        icon="@drawable/ic_settings_ethernet_white_24dp"
+        id="@id/tab_network_utils"
+        activeColor="@color/red"
+        title="@string/network" />
+    <tab
+        icon="@drawable/ic_donut_small_white_24dp"
+        id="@id/tab_os_utils"
+        activeColor="@color/orange_bright"
+        title="@string/os" />
+    <tab
+        icon="@drawable/ic_extension_white_24dp"
+        id="@id/tab_other_utils"
+        activeColor="@color/green"
+        title="@string/other" />
+
+
+
+</tabs>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.ericyl.example.ui.activity.AESCryptoActivity">
+
+    <include layout="@layout/layout_toolbar" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <Button
+                android:id="@+id/create_key"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/create_key" />
+
+            <Button
+                android:id="@+id/read_key"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/read_key" />
+
+            <EditText
+                android:id="@+id/et_source"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btn_encrypt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/encrypt" />
+
+            <TextView
+                android:id="@+id/tv_cipher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btn_decrypt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/decrypt" />
+
+            <TextView
+                android:id="@+id/tv_original"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/save_key"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/save_key" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

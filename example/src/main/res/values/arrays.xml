@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Home Array-->
+    <string-array name="hello">
+        <item>你好</item>
+        <item>hello</item>
+        <item>hola</item>
+        <item>hallo</item>
+        <item>Bonjour</item>
+        <item>привет</item>
+        <item>Salve</item>
+        <item>こんにちは</item>
+        <item>안녕하세요.</item>
+    </string-array>
+
+    <!--Settings Array-->
+    <string-array name="theme_selection_entries">
+        <item>跟随系统</item>
+        <item>白天</item>
+        <item>夜间</item>
+        <item>自动</item>
+    </string-array>
+    <string-array name="theme_selection_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <!--Utils Array-->
+    <string-array name="utils_entries">
+        <item>RecyclerView Utils</item>
+        <item>Download Utils</item>
+        <item>Permission Utils</item>
+        <item>WPS Office Utils</item>
+        <item>&#8230; &#8230;</item>
+    </string-array>
+
+    <string-array name="utils_ui_entries">
+        <item>RecyclerView Utils</item>
+        <item>Report Utils</item>
+    </string-array>
+
+    <string-array name="utils_network_entries">
+        <item>Download Utils</item>
+        <item>WiFi Utils</item>
+    </string-array>
+
+    <string-array name="utils_os_entries">
+        <item>OS Info Utils</item>
+        <item>Package Utils</item>
+        <item>Phone Manufacturer Utils</item>
+        <item>Clear Cache Utils</item>
+    </string-array>
+
+    <string-array name="utils_other_entries">
+        <item>Permission Utils</item>
+        <item>WPS Office Utils</item>
+        <item>Root Utils</item>
+        <item>Others Utils</item>
+    </string-array>
+
+    <!--Network Array-->
+    <string-array name="network_entries">
+        <item>Volley Utils</item>
+        <!--<item>Java WebService Utils</item>-->
+        <item>OkHttp Utils</item>
+    </string-array>
+
+    <!--Take Photo Setting Array-->
+    <string-array name="take_photo_save_storage_entries">
+        <item>@string/save_private_storage</item>
+        <item>@string/save_public_storage</item>
+        <item>@string/save_custom_folder</item>
+    </string-array>
+
+    <string-array name="take_photo_save_storage_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+</resources>

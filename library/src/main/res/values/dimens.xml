@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="title_xlarge_size">24sp</dimen>
+    <dimen name="title_large_size">22sp</dimen>
+    <dimen name="title_medium_size">20sp</dimen>
+    <dimen name="title_small_size">18sp</dimen>
+
+    <dimen name="text_xlarge_size">16sp</dimen>
+    <dimen name="text_large_size">14sp</dimen>
+    <dimen name="text_medium_size">12sp</dimen>
+    <dimen name="text_small_size">10sp</dimen>
+
+    <dimen name="activity_xlarge_margin">64dp</dimen>
+    <dimen name="activity_large_margin">48dp</dimen>
+    <dimen name="activity_medium_margin">32dp</dimen>
+    <dimen name="activity_small_margin">24dp</dimen>
+
+    <dimen name="view_xlarge_margin">16dp</dimen>
+    <dimen name="view_large_margin">8dp</dimen>
+    <dimen name="view_medium_margin">4dp</dimen>
+    <dimen name="view_small_margin">2dp</dimen>
+
+    <dimen name="control_corner_material">2dp</dimen>
+    <dimen name="control_inset_material">4dp</dimen>
+    <dimen name="control_padding_material">4dp</dimen>
+
+    <dimen name="button_inset_horizontal_material">@dimen/control_inset_material</dimen>
+    <dimen name="button_inset_vertical_material">6dp</dimen>
+    <dimen name="button_padding_horizontal_material">8dp</dimen>
+    <dimen name="button_padding_vertical_material">@dimen/control_padding_material</dimen>
+
+    <dimen name="drawer_menu_header">172dp</dimen>
+
+    <dimen name="drawer_menu_header_top">32dp</dimen>
+    <dimen name="navigation_drawer_width">256dp</dimen>
+
+    <item name="dialog_width_major" type="dimen">90.0%</item>
+    <item name="dialog_width_minor" type="dimen">90.0%</item>
+    <dimen name="elevation">4dp</dimen>
+
+</resources>

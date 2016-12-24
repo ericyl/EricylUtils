@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="package_name">com.ericyl.utils.example</string>
+    <string name="class_name_clear_search_history">org.cs.moa.home.ui.activity.ClearSearchHistoryActivity</string>
+
+
+    <string name="key_theme_selection">ThemeSelection</string>
+    <string name="theme_selection_default_value">0</string>
+    <string name="key_disable_splash_screen">DisableSplashScreen</string>
+    <string name="key_splash_screen_second">SplashScreenSecond</string>
+
+    <string name="key_crop_photo">CropPhoto</string>
+    <string name="key_save_photo">SavePhoto</string>
+    <string name="key_add_to_gallery">AddToGallery</string>
+    <string name="key_save_photo_other_function">SavePhotoOtherFunction</string>
+    <string name="key_save_storage">TakePhotoStorage</string>
+</resources>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="tab_main" type="id" />
+    <item name="tab_utils" type="id" />
+    <item name="tab_network" type="id" />
+    <item name="tab_barcode" type="id" />
+    <item name="tab_crypto" type="id" />
+
+
+    <item name="tab_ui_utils" type="id" />
+    <item name="tab_network_utils" type="id" />
+    <item name="tab_os_utils" type="id" />
+    <item name="tab_other_utils" type="id" />
+
+    <item name="rv_ui" type="id" />
+    <item name="rv_network" type="id" />
+    <item name="rv_os" type="id" />
+    <item name="rv_other" type="id" />
+
+    <item name="more_utils" type="id" />
+    <item name="recyclerview_utils" type="id" />
+    <item name="searchview_util" type="id" />
+    <item name="report_utils" type="id" />
+    <item name="download_utils" type="id" />
+    <item name="wifi_utils" type="id" />
+    <item name="os_info_utils" type="id">Info</item>
+    <item name="package_utils" type="id" />
+    <item name="phone_manufacturer_utils" type="id" />
+    <item name="clear_cache_utils" type="id" />
+    <item name="permission_utils" type="id" />
+    <item name="wps_office_utils" type="id" />
+    <item name="root_utils" type="id" />
+    <item name="others_utils" type="id" />
+
+
+    <item name="tab_volley" type="id" />
+    <item name="tab_ksoap" type="id" />
+    <item name="tab_okhttp" type="id" />
+
+    <item name="tab_build_barcode" type="id" />
+    <item name="tab_scan_barcode" type="id" />
+
+    <item name="fab_save" type="id" />
+    <item name="fab_share" type="id" />
+    <item name="fab_scan" type="id" />
+    <item name="fab_distinguish" type="id" />
+</resources>

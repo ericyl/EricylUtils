@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ericyl.utils">
+
+    <!--<permission-->
+    <!--android:name="com.ericyl.utils.DOWNLOAD_PERMISSION"-->
+    <!--android:protectionLevel="signature" />-->
+    <!--<uses-permission android:name="com.ericyl.utils.DOWNLOAD_PERMISSION" />-->
+
+</manifest>

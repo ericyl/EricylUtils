@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="defaultStyle_CustomSearchView">
+        <item name="custom_editTextSize">@dimen/text_large_size</item>
+        <item name="custom_imgGo">@drawable/ic_search_query</item>
+        <item name="custom_goPaddingLeft">@dimen/view_medium_margin</item>
+        <item name="custom_goPaddingRight">@dimen/view_medium_margin</item>
+        <item name="custom_submitAreaBackground">@color/transparent</item>
+        <item name="custom_searchPlateBackground">@color/transparent</item>
+    </style>
+
+
+    <style name="defaultStyle_NumberPickerPreference">
+        <item name="max">10</item>
+        <item name="min">0</item>
+        <item name="textEnable">false</item>
+    </style>
+
+    <style name="defaultStyle_CircleTextView">
+        <item name="backgroundColor">?attr/colorPrimary</item>
+        <item name="singleText">false</item>
+    </style>
+
+    <style name="defaultStyle_LoadingLayout">
+        <item name="showProgressBar">true</item>
+        <item name="loadingMessage">@string/message_loading</item>
+        <item name="showFailedImage">false</item>
+        <item name="failedImage">@drawable/ic_warning_white_24dp</item>
+        <item name="failedImageColor">?attr/colorPrimary</item>
+        <item name="failedMessage">@string/message_error</item>
+        <item name="finishMessage">@string/message_finish</item>
+    </style>
+
+</resources>

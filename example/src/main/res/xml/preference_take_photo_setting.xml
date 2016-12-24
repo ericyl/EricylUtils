@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <PreferenceCategory android:title="@string/save_function">
+
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/key_save_photo"
+            android:persistent="true"
+            android:title="@string/save_photo_title" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/key_add_to_gallery"
+            android:persistent="true"
+            android:summary="@string/add_to_gallery_summary"
+            android:summaryOff="@string/add_to_gallery_summary_off"
+            android:summaryOn="@string/add_to_gallery_summary_on"
+            android:title="@string/add_to_gallery_title" />
+
+    </PreferenceCategory>
+
+    <com.ericyl.utils.ui.widget.support.preference.RadioGroupPreference
+        android:defaultValue="1"
+        android:key="@string/key_save_storage"
+        android:persistent="true"
+        android:title="@string/save_photo_storage_title"
+        app:radioEntries="@array/take_photo_save_storage_entries"
+        app:radioEntryValues="@array/take_photo_save_storage_values" />
+
+    <PreferenceCategory
+        android:key="@string/key_save_photo_other_function"
+        android:persistent="false"
+        android:title="@string/other_function">
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/key_crop_photo"
+            android:persistent="true"
+            android:summary="@string/crop_photo_summary"
+            android:title="@string/crop_photo" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

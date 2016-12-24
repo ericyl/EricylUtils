@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.ericyl.example.model.ui_model.BarcodeInHomeModel" />
+
+        <import type="java.util.Map" />
+
+
+        <variable
+            name="map"
+            type="Map&lt;String, BarcodeInHomeModel&gt;" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="@dimen/view_xlarge_margin">
+
+                <LinearLayout
+                    android:id="@+id/layout_build"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?selectableItemBackground"
+                    android:gravity="center"
+                    android:onClick="@{clickListener::onClick}"
+                    android:orientation="vertical">
+
+                    <com.ericyl.utils.ui.widget.CircleTextView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:gravity="center"
+                        android:text="@{map[`build`].iconText}"
+                        android:textColor="@{map[`build`].iconTextColor}"
+                        android:textSize="16sp"
+                        app:backgroundColor="@{map[`build`].iconBackgroundColor}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/view_xlarge_margin"
+                        android:text="@{map[`build`].title}" />
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/gray" />
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="@dimen/view_xlarge_margin">
+
+                <LinearLayout
+                    android:id="@+id/layout_scan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?selectableItemBackground"
+                    android:onClick="@{clickListener::onClick}"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.ericyl.utils.ui.widget.CircleTextView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:gravity="center"
+                        android:text="@{map[`scan`].iconText}"
+                        android:textColor="@{map[`scan`].iconTextColor}"
+                        android:textSize="16sp"
+                        app:backgroundColor="@{map[`scan`].iconBackgroundColor}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/view_xlarge_margin"
+                        android:text="@{map[`scan`].title}" />
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</layout>

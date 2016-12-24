@@ -1,0 +1,107 @@
+<resources>
+    <string name="app_name">Example</string>
+    <string name="app_title">EricylUtils Example</string>
+    <string name="app_author">by ericyl .</string>
+    <string name="version_name">2.0.4</string>
+    <string name="open_drawer">Open Drawer</string>
+    <string name="close_drawer">Close Drawer</string>
+
+    <string name="second_skip">%1$s\'s 跳过</string>
+
+
+    <string name="camera">拍照</string>
+    <string name="gallery">相册</string>
+
+    <string name="please_sign_in">点击头像登陆</string>
+    <string name="main_page">首页</string>
+    <string name="map">地图</string>
+    <string name="picture">图像</string>
+    <string name="setting">设置</string>
+    <string name="help">辅助帮助</string>
+    <string name="feedback">发送反馈</string>
+    <string name="about">关于 Example</string>
+    <string name="click_back_again_to_exit">再按一次退出</string>
+
+    <string name="barcode_label">二维码</string>
+
+
+    <string name="utils">工具</string>
+    <string name="network">网络</string>
+    <string name="barcode">二维码</string>
+    <string name="crypto">密码学</string>
+    <string name="aes_crypto">AES</string>
+
+
+    <string name="basic">基本</string>
+    <string name="theme_selection">主题选择</string>
+    <string name="theme_selection_summary">主题切换, 白天/夜间</string>
+    <string name="disable_splash_screen">禁用启动界面</string>
+    <string name="disable_splash_screen_summary">启动直接进入主界面</string>
+    <string name="splash_screen_second">启动界面停留时间</string>
+    <string name="splash_screen_second_summary">设置启动界面停留时间</string>
+    <string name="other">其他</string>
+    <string name="clear_cache">清空缓存</string>
+    <string name="key_clear_cache">clear_cache</string>
+    <string name="clear_search_history">清理搜索记录</string>
+    <string name="key_clear_search_history">clear_search_history</string>
+    <string name="reset_init">恢复初始设置</string>
+    <string name="key_reset_init">reset_init</string>
+    <string name="app_info">应用信息</string>
+    <string name="key_app_info">app_info</string>
+    <string name="copyright">©2016 Ericyl</string>
+    <string name="check_for_updates">检查更新</string>
+    <string name="key_check_for_updates">检查更新</string>
+
+    <string name="ui">界面</string>
+    <string name="os">系统</string>
+
+    <string name="searchView">SearchView</string>
+    <string name="recyclerView">RecyclerView</string>
+
+
+    <string name="volley">Volley</string>
+    <string name="ksoap">KSoap</string>
+    <string name="okHttp">OkHttp</string>
+
+    <string name="build">Build</string>
+    <string name="build_barcode">生成二维码</string>
+    <string name="save">保存</string>
+    <string name="share">分享</string>
+    <string name="error_per">aaa</string>
+    <string name="allow">允许</string>
+    <string name="scan">Scan</string>
+    <string name="distinguish_barcode">识别二维码</string>
+    <string name="distinguish">识别</string>
+    <string name="scanning">扫描</string>
+
+    <string name="create_key">生成密钥</string>
+    <string name="read_key">从 Assets 中读取密钥</string>
+    <string name="encrypt">加密</string>
+    <string name="decrypt">解密</string>
+    <string name="save_key">保存密钥</string>
+
+
+    <string name="take_photo_setting_label">拍照设置</string>
+    <string name="save_function">保存功能</string>
+    <string name="other_function">其他功能</string>
+    <string name="save_photo_title">保存图片</string>
+    <string name="add_to_gallery_title">添加到图库</string>
+    <string name="add_to_gallery_summary">添加到系统图库中（私有目录无法使用）</string>
+    <string name="add_to_gallery_summary_on">保存图片，同时添加到系统图库中</string>
+    <string name="add_to_gallery_summary_off">仅保存图片，不添加到系统图库</string>
+    <string name="save_photo_storage_title">保存位置</string>
+    <string name="save_private_storage">私有目录</string>
+    <string name="save_public_storage">公用目录</string>
+    <string name="save_custom_folder">自定义目录</string>
+    <string name="crop_photo">图片裁剪</string>
+    <string name="crop_photo_summary">启动图片裁剪功能</string>
+    <string name="label_select_picture">选择图片</string>
+
+    <string name="single_recycler_view">Single</string>
+    <string name="multilayer_recycler_view">Multilayer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

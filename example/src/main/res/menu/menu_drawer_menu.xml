@@ -1,0 +1,74 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/nav_home"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_main"
+            android:checkable="true"
+            android:checked="true"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="@string/main_page" />
+
+        <item
+            android:id="@+id/nav_map"
+            android:checkable="false"
+            android:icon="@drawable/ic_map_black_24dp"
+            android:title="@string/map" />
+
+
+        <item
+            android:id="@+id/nav_picture"
+            android:checkable="false"
+            android:icon="@drawable/ic_photo_black_24dp"
+            android:title="@string/picture" />
+    </group>
+    <group
+        android:id="@+id/nav_function"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_utils"
+            android:checkable="true"
+            android:icon="@drawable/ic_build_black_24dp"
+            android:title="@string/utils" />
+
+        <item
+            android:id="@+id/nav_network"
+            android:checkable="true"
+            android:icon="@drawable/ic_http_black_24dp"
+            android:title="@string/network" />
+        <item
+            android:id="@+id/nav_barcode"
+            android:checkable="true"
+            android:icon="@drawable/ic_blur_on_black_24dp"
+            android:title="@string/barcode" />
+        <item
+            android:id="@+id/nav_crypto"
+            android:checkable="true"
+            android:icon="@drawable/ic_fingerprint_black_24dp"
+            android:title="@string/crypto" />
+    </group>
+    <group
+        android:id="@+id/nav_introduction"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_settings"
+            android:checkable="false"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="@string/setting" />
+        <item
+            android:id="@+id/nav_feedback"
+            android:checkable="true"
+            android:icon="@drawable/ic_announcement_black_24dp"
+            android:title="@string/feedback" />
+        <item
+            android:id="@+id/nav_help"
+            android:checkable="true"
+            android:icon="@drawable/ic_help_black_24dp"
+            android:title="@string/help" />
+        <item
+            android:id="@+id/nav_about"
+            android:checkable="false"
+            android:icon="@drawable/ic_account_box_black_24dp"
+            android:title="@string/about" />
+    </group>
+</menu>

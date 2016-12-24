@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <PreferenceCategory android:title="@string/basic">
+
+        <ListPreference
+            android:defaultValue="@string/theme_selection_default_value"
+            android:entries="@array/theme_selection_entries"
+            android:entryValues="@array/theme_selection_values"
+            android:key="@string/key_theme_selection"
+            android:persistent="true"
+            android:summary="@string/theme_selection_summary"
+            android:title="@string/theme_selection" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/key_disable_splash_screen"
+            android:persistent="true"
+            android:summary="@string/disable_splash_screen_summary"
+            android:title="@string/disable_splash_screen" />
+
+        <com.ericyl.utils.ui.widget.support.preference.NumberPickerPreference
+            android:defaultValue="2"
+            android:key="@string/key_splash_screen_second"
+            android:persistent="true"
+            android:summary="@string/splash_screen_second_summary"
+            android:title="@string/splash_screen_second"
+            app:max="16"
+            app:min="1" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/other">
+
+        <Preference
+            android:key="@string/key_clear_cache"
+            android:persistent="false"
+            android:title="@string/clear_cache" />
+
+        <Preference
+            android:key="@string/key_reset_init"
+            android:persistent="false"
+            android:title="@string/reset_init" />
+
+        <Preference
+            android:persistent="false"
+            android:title="@string/clear_search_history">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:targetClass="@string/class_name_clear_search_history"
+                android:targetPackage="@string/package_name" />
+        </Preference>
+
+        <PreferenceScreen
+            android:fragment="com.ericyl.example.ui.activity.SettingActivity$AppInfoFragment"
+            android:title="@string/app_info">
+
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+</PreferenceScreen>

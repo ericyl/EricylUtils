@@ -1,0 +1,17 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.ericyl.utils.ui.widget.support.recyclerview.multilayer.layout.PinnedRecyclerViewLayout
+        android:id="@+id/parentPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical" />
+    </com.ericyl.utils.ui.widget.support.recyclerview.multilayer.layout.PinnedRecyclerViewLayout>
+
+</FrameLayout>

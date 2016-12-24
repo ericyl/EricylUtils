@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/night1</color>
+    <color name="colorPrimaryDark">@color/night1</color>
+    <color name="colorAccent">@color/night</color>
+    <color name="night">#99242424</color>
+    <color name="night1">#242424</color>
+    <color name="bottom_bar_background">@color/night</color>
+</resources>
