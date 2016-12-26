@@ -164,3 +164,36 @@
 -keep class com.yalantis.ucrop** { *; }
 -keep interface com.yalantis.ucrop** { *; }
 #----------------------------------------------------------------------------
+
+#----------------------------------------------------------------------------
+# SQLCipher
+# Unverified (https://github.com/illarionov/sqlcipher-android-tests/blob/spatialite/SqlcipherAndroidTestsProject/SqlcipherAndroidTests/proguard-sqlcipher.txt)
+
+#-libraryjars libs/jsr305.jar
+
+-dontobfuscate
+
+-dontwarn sun.misc.Unsafe
+-dontwarn com.google.common.collect.MinMaxPriorityQueue
+
+#SQLCipher optimized
+-keep class net.sqlcipher.database.* extends java.lang.Exception {
+   *;
+}
+-keepclasseswithmembers class net.sqlcipher.** {
+    native <methods>;
+}
+-keep class net.sqlcipher.database.SQLite* {
+    int nHandle;
+    int nStatement;
+}
+-keep class net.sqlcipher.CursorWindow {
+    int nWindow;
+}
+-keep class net.sqlcipher.database.SQLiteDatabase {
+    int mNativeHandle;
+}
+#-keepnames class net.sqlcipher.** {
+# *;
+#}
+#----------------------------------------------------------------------------

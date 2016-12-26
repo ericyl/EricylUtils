@@ -30,6 +30,22 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
+
+        <provider
+            android:name=".content.ExampleContentProvider"
+            android:authorities="com.ericyl.example.provider.content"
+            android:exported="true" />
+
+        <service
+            android:name=".service.InitService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.ericyl.example.initService" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
         <activity
             android:name=".ui.activity.SplashActivity"
             android:theme="@style/AppTheme.Splash">

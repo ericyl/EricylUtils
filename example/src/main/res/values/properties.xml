@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="package_name">com.ericyl.utils.example</string>
-    <string name="class_name_clear_search_history">org.cs.moa.home.ui.activity.ClearSearchHistoryActivity</string>
+
+    <string name="package_name">com.ericyl.example</string>
+
+    <string name="init_service">com.ericyl.example.initService</string>
+
+    <string name="class_name_clear_search_history">com.ericyl.example.ui.activity.ClearSearchHistoryActivity</string>
 
 
     <string name="key_theme_selection">ThemeSelection</string>

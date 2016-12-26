@@ -1,12 +1,18 @@
 package com.ericyl.example.ui.activity;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.SharedPreferences;
-import android.os.Bundle;
+import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatDelegate;
 
 import com.ericyl.example.R;
+import com.ericyl.example.service.InitService;
 import com.ericyl.example.ui.fragment.SplashFragment;
 import com.ericyl.example.util.AppProperties;
 import com.ericyl.utils.util.ActivityUtils;
@@ -16,9 +22,18 @@ public class SplashActivity extends FragmentActivity {
 
     private SplashFragment splashFragment;
 
+    private InitService initService;
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onStart() {
+        super.onStart();
+        Intent intent = new Intent();
+        intent.setAction(getString(R.string.init_service));
+        intent.setPackage(getPackageName());
+        bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
+
+
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         boolean disableSplashScreen = sharedPreferences.getBoolean(StringUtils.getString(AppProperties.getContext(), R.string.key_disable_splash_screen), false);
         int splashScreenSecond = sharedPreferences.getInt(StringUtils.getString(AppProperties.getContext(), R.string.key_splash_screen_second), 2);
@@ -27,14 +42,16 @@ public class SplashActivity extends FragmentActivity {
         if (disableSplashScreen)
             jumpHomeActivity();
         else {
-            if (savedInstanceState == null) {
+            splashFragment = (SplashFragment) getSupportFragmentManager().findFragmentByTag("splashFragment");
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            if (splashFragment == null) {
                 splashFragment = SplashFragment.newInstance(splashScreenSecond);
-                getSupportFragmentManager().beginTransaction().add(android.R.id.content, splashFragment, "splashFragment").commitAllowingStateLoss();
+                transaction.add(android.R.id.content, splashFragment, "splashFragment").commitAllowingStateLoss();
             } else
-                splashFragment = (SplashFragment) getSupportFragmentManager().findFragmentByTag("splashFragment");
+                transaction.show(splashFragment);
         }
-    }
 
+    }
 
     public void jumpHomeActivity() {
         ActivityUtils.jumpActivity(this, HomeActivity.class);
@@ -62,6 +79,28 @@ public class SplashActivity extends FragmentActivity {
         AppCompatDelegate.setDefaultNightMode(mode);
     }
 
+    private ServiceConnection serviceConnection = new ServiceConnection() {
+        public void onServiceConnected(ComponentName className, IBinder service) {
+            InitService.InitBinder binder = (InitService.InitBinder) service;
+            initService = binder.getService();
+            initService.initSystem();
+        }
+
+        public void onServiceDisconnected(ComponentName className) {
+            initService = null;
+        }
+    };
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (serviceConnection != null) {
+            Intent intent = new Intent();
+            intent.setAction(getString(R.string.init_service));
+            intent.setPackage(getPackageName());
+            unbindService(serviceConnection);
+        }
+    }
 
     @Override
     protected void onDestroy() {

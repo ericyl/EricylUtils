@@ -1,5 +1,6 @@
 package com.ericyl.example.ui.activity;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -14,8 +15,13 @@ import android.widget.TextView;
 
 import com.ericyl.example.R;
 import com.ericyl.example.ui.BaseActivity;
+import com.ericyl.example.util.AESTableUtils;
+import com.ericyl.example.util.AppProperties;
+import com.ericyl.example.util.DatabaseUtils;
 import com.ericyl.utils.cryptographical.exception.AESCryptoException;
 import com.ericyl.utils.util.AESKeyStoreUtils;
+
+import net.sqlcipher.database.SQLiteDatabase;
 
 import java.io.File;
 
@@ -23,6 +29,11 @@ import javax.crypto.SecretKey;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.functions.Func1;
+import rx.schedulers.Schedulers;
 
 public class AESCryptoActivity extends BaseActivity implements View.OnClickListener {
 
@@ -39,6 +50,8 @@ public class AESCryptoActivity extends BaseActivity implements View.OnClickListe
     private byte[] iv;
     private byte[] salt;
 
+    private String name, type, keyStorePwd, secretKeyEntryAlias, secretKeyEntryPwd;
+
     @Override
     public int getContentViewId() {
         return R.layout.activity_aes_crypto;
@@ -48,10 +61,56 @@ public class AESCryptoActivity extends BaseActivity implements View.OnClickListe
     protected void init(@Nullable Bundle savedInstanceState) {
         super.init(savedInstanceState);
         iv = Base64.decode("e+YXMeMgVaQLjtQt4AlmkQ==", Base64.NO_WRAP);
-        iv = AESKeyStoreUtils.getRandomIv();
+//        iv = AESKeyStoreUtils.getRandomIv();
         Log.v("iv", Base64.encodeToString(iv, Base64.NO_WRAP));
         salt = AESKeyStoreUtils.getRandomSalt();
         Log.v("salt", Base64.encodeToString(salt, Base64.NO_WRAP));
+
+
+        Observable.just("example.keystore").subscribeOn(Schedulers.io()).map(new Func1<String, Void>() {
+            @Override
+            public Void call(String str) {
+                SQLiteDatabase.loadLibs(AESCryptoActivity.this);
+                SQLiteDatabase database = null;
+                Cursor cursor = null;
+                try {
+                    database = SQLiteDatabase.openDatabase(AppProperties.getDatabaseDir(DatabaseUtils.DATABASE).getAbsolutePath(), "test", null, SQLiteDatabase.OPEN_READONLY);
+                    cursor = database.query(AESTableUtils.TABLE_NAME, null, AESTableUtils.NAME + " = ? ", new String[]{"example.keystore"}, null, null, null);
+                    if (cursor != null && cursor.moveToFirst()) {
+                        name = cursor.getString(cursor.getColumnIndex(AESTableUtils.NAME));
+                        type = cursor.getString(cursor.getColumnIndex(AESTableUtils.KEY_TYPE));
+                        keyStorePwd = cursor.getString(cursor.getColumnIndex(AESTableUtils.KEY_STORE_PWD));
+                        secretKeyEntryAlias = cursor.getString(cursor.getColumnIndex(AESTableUtils.SECRET_KEY_ENTRY_ALIAS));
+                        secretKeyEntryPwd = cursor.getString(cursor.getColumnIndex(AESTableUtils.SECRET_KEY_ENTRY_PWD));
+                    } else
+                        throw new RuntimeException("null");
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                } finally {
+                    if (database != null)
+                        database.close();
+                    if (cursor != null)
+                        cursor.close();
+                }
+                return null;
+
+            }
+        }).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<Void>() {
+            @Override
+            public void call(Void v) {
+            }
+
+        }, new Action1<Throwable>() {
+            @Override
+            public void call(Throwable throwable) {
+                name = "example.keystore";
+                type = "BKS";
+                keyStorePwd = "example";
+                secretKeyEntryAlias = "example";
+                secretKeyEntryPwd = "example";
+                throwable.printStackTrace();
+            }
+        });
     }
 
     @Override
@@ -76,7 +135,7 @@ public class AESCryptoActivity extends BaseActivity implements View.OnClickListe
                 break;
             case R.id.read_key:
                 try {
-                    secretKey = AESKeyStoreUtils.readSecretKey(this, "aes" + File.separator + "example.keystore", "BKS", "example", "example", "example");
+                    secretKey = AESKeyStoreUtils.readSecretKey(this, "aes" + File.separator + name, type, keyStorePwd, secretKeyEntryAlias, secretKeyEntryPwd);
                 } catch (AESCryptoException e) {
                     e.printStackTrace();
                 }
@@ -120,7 +179,7 @@ public class AESCryptoActivity extends BaseActivity implements View.OnClickListe
                 break;
             case R.id.save_key:
                 try {
-                    AESKeyStoreUtils.saveInKeyStore(this, secretKey, "BKS", "aes/example.keystore", "example", "example", "example");
+                    AESKeyStoreUtils.saveInKeyStore(this, secretKey, type, name, keyStorePwd, secretKeyEntryAlias, secretKeyEntryPwd);
                 } catch (AESCryptoException e) {
                     e.printStackTrace();
                 }
