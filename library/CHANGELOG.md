@@ -1,5 +1,12 @@
 # Changelog
 
-## 0.1.0
+## library
+
+### 0.1.x
+
+#### 0.1.0
 * Clean up
+
+#### 0.1.1
+* 新增 `CustomSearchView`: `clearText()` 方法
 

@@ -74,7 +74,7 @@ public class AESCryptoActivity extends BaseActivity implements View.OnClickListe
                 SQLiteDatabase database = null;
                 Cursor cursor = null;
                 try {
-                    database = SQLiteDatabase.openDatabase(AppProperties.getDatabaseDir(DatabaseUtils.DATABASE).getAbsolutePath(), "test", null, SQLiteDatabase.OPEN_READONLY);
+                    database = SQLiteDatabase.openDatabase(AppProperties.getDatabaseDir(DatabaseUtils.DATA_DATABASE_NAME + ".db").getAbsolutePath(), "test", null, SQLiteDatabase.OPEN_READONLY);
                     cursor = database.query(AESTableUtils.TABLE_NAME, null, AESTableUtils.NAME + " = ? ", new String[]{"example.keystore"}, null, null, null);
                     if (cursor != null && cursor.moveToFirst()) {
                         name = cursor.getString(cursor.getColumnIndex(AESTableUtils.NAME));

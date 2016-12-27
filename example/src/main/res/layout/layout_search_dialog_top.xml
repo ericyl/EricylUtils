@@ -1,0 +1,26 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:tint="@color/grey"
+        android:padding="@dimen/view_large_margin"
+        android:src="@drawable/ic_arrow_back_black_24dp" />
+
+    <com.ericyl.utils.ui.widget.CustomSearchView
+        android:id="@+id/search_bar"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:imeOptions="actionSearch|flagNoExtractUi|flagNoFullscreen"
+        android:inputType="text|textAutoComplete|textNoSuggestions"
+        app:iconifiedByDefault="false"
+        app:queryHint="@string/search_hint"
+        app:searchIcon="@null" />
+
+</merge>

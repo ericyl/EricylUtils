@@ -56,6 +56,8 @@
     <string name="os">系统</string>
 
     <string name="searchView">SearchView</string>
+    <string name="search_hint">搜索条件</string>
+    <string name="search">搜索</string>
     <string name="recyclerView">RecyclerView</string>
 
 

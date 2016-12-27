@@ -16,6 +16,9 @@ import com.ericyl.utils.R;
 import com.ericyl.utils.util.DisplayUtils;
 
 public class CustomSearchView extends SearchView {
+
+    private SearchAutoComplete searchAutoComplete;
+
     private ISearchViewController searchViewController;
 
     private static final int[] CHECKED_STATE_SET = {android.R.attr.state_checked};
@@ -66,7 +69,7 @@ public class CustomSearchView extends SearchView {
             if (a.hasValue(R.styleable.CustomSearchView_custom_submitAreaBackground))
                 submitAreaBackground = a.getColor(R.styleable.CustomSearchView_custom_submitAreaBackground, Color.TRANSPARENT);
 
-            SearchAutoComplete searchAutoComplete = (SearchAutoComplete) findViewById(android.support.v7.appcompat.R.id.search_src_text);
+            searchAutoComplete = (SearchAutoComplete) findViewById(android.support.v7.appcompat.R.id.search_src_text);
             searchAutoComplete.setTextSize(editTextSize);
 
             setSubmitButtonEnabled(true);
@@ -84,6 +87,10 @@ public class CustomSearchView extends SearchView {
         } finally {
             a.recycle();
         }
+    }
+
+    public void clearText() {
+        searchAutoComplete.setText(null);
     }
 
     private ColorStateList createDefaultColorStateList(int baseColorThemeAttr) {

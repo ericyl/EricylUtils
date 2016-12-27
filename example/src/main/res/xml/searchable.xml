@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<searchable xmlns:android="http://schemas.android.com/apk/res/android"
+    android:hint="@string/search_hint"
+    android:label="@string/search"
+    android:searchSuggestAuthority="com.ericyl.example.provider.content/SearchSuggestion/SearchSuggestion"
+    android:searchSuggestSelection=" ?" />

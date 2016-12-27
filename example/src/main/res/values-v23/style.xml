@@ -8,7 +8,11 @@
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
     </style>
 
-    <style name="AppTheme.Search" parent="AppTheme" />
+    <style name="AppTheme.Search" parent="AppTheme">
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@color/window_background</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
 
     <style name="AppTheme" parent="Base.Theme.AppTheme">
         <item name="android:statusBarColor">?colorPrimaryDark</item>

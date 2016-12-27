@@ -2,6 +2,8 @@
 
     <style name="AppTheme.Translucent" parent="AppTheme" />
 
+    <style name="AppTheme.Search" parent="AppTheme" />
+
     <style name="AppTheme" parent="Base.Theme.AppTheme" />
 
     <style name="Base.Theme.AppTheme" parent="Base.Theme.AppTheme.DayNight">

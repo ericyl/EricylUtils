@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import com.dgreenhalgh.android.simpleitemdecoration.linear.EndOffsetItemDecoration;
@@ -162,7 +161,6 @@ public class SingleRecyclerViewFragment extends BaseFragment {
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<Boolean>() {
             @Override
             public void call(Boolean flag) {
-                Log.v("aaaa", "" + flag);
                 if (flag) {
                     adapter.notifyDataSetChanged();
                     loading = false;

@@ -8,7 +8,9 @@ import android.util.AttributeSet;
 
 import com.ericyl.utils.util.OSInfoUtils;
 
-
+/**
+ * @hide
+ */
 public class TransStatusBarFrameLayout extends ScrimInsetsFrameLayout {
 
     public TransStatusBarFrameLayout(Context context) {

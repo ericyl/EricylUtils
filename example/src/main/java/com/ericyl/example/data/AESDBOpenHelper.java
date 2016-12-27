@@ -14,12 +14,12 @@ public class AESDBOpenHelper extends SQLiteOpenHelper {
 
 
     public AESDBOpenHelper(Context context) {
-        super(context, DatabaseUtils.DATABASE_NAME, null, DATABASE_VERSION);
+        super(context, DatabaseUtils.DATA_DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        createSearchSuggestionTable(db);
+        createAESTable(db);
     }
 
     @Override
@@ -27,7 +27,7 @@ public class AESDBOpenHelper extends SQLiteOpenHelper {
 
     }
 
-    private static void createSearchSuggestionTable(SQLiteDatabase sdb) {
+    private static void createAESTable(SQLiteDatabase sdb) {
         String sql = "CREATE TABLE IF NOT EXISTS " + AESTableUtils.TABLE_NAME + " ( "
                 + AESTableUtils.INDEX + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + AESTableUtils.NAME + " VARCHAR, "

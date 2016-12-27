@@ -17,6 +17,9 @@ import com.ericyl.utils.R;
 import com.ericyl.utils.util.DisplayUtils;
 import com.ericyl.utils.util.OSInfoUtils;
 
+/**
+ * @hide
+ */
 public class TransNavigationView extends ScrimInsetsFrameLayout {
 
     private NavigationView navigationView;

@@ -53,16 +53,17 @@ public class InitService extends Service {
     }
 
     public void initSystem() {
-        DatabaseUtils.createDatabase(this);
+        DatabaseUtils.createDataDatabase(this);
+        DatabaseUtils.createSearchDatabase(this);
         initData();
     }
 
-    private void initData(){
+    private void initData() {
         SQLiteDatabase.loadLibs(this);
         Cursor cursor = null;
         SQLiteDatabase database = null;
         try {
-            database = SQLiteDatabase.openDatabase(AppProperties.getDatabaseDir(DatabaseUtils.DATABASE).getAbsolutePath(), "test", null, SQLiteDatabase.OPEN_READWRITE);
+            database = SQLiteDatabase.openDatabase(AppProperties.getDatabaseDir(DatabaseUtils.DATA_DATABASE_NAME + ".db").getAbsolutePath(), "test", null, SQLiteDatabase.OPEN_READWRITE);
 
             cursor = database.query(AESTableUtils.TABLE_NAME, null, AESTableUtils.NAME + " = ? ", new String[]{"example.keystore"}, null, null, null);
             if (cursor != null && cursor.moveToFirst())

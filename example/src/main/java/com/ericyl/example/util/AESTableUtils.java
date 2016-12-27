@@ -1,12 +1,8 @@
 package com.ericyl.example.util;
 
-/**
- * Created by ericyl on 2016/12/26.
- */
-
 public class AESTableUtils {
 
-    public static final String TABLE_NAME = "data";
+    public static final String TABLE_NAME = "aes_info";
     public static final String INDEX = "id";
     public static final String NAME = "name";
     public static final String KEY_TYPE = "type";
