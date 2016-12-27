@@ -8,5 +8,5 @@
 * Clean up
 
 #### 0.1.1
-* 新增 `CustomSearchView`: `clearText()` 方法
+* 新增 `CustomSearchView`: `setText()` 方法
 
