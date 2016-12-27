@@ -64,17 +64,6 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
 
     public static SearchDialogFragment newInstance() {
         return new SearchDialogFragment();
-//        Bundle args = new Bundle();
-//        fragment.setArguments(args);
-//        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-//        if (getArguments() == null) {
-//            return;
-//        }
     }
 
 
@@ -101,8 +90,6 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
                     showAnimationIn();
             }
         });
-
-        getInfos(null);
     }
 
     private void init(View view) {
@@ -130,7 +117,7 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
                     results.values = allSuggestions;
                 } else {
                     List<SearchInfo> searchInfos = new ArrayList<>();
-                    for (SearchInfo searchInfo : suggestions) {
+                    for (SearchInfo searchInfo : allSuggestions) {
                         if (searchInfo.getTitle().contains(constraint)) {
                             searchInfos.add(searchInfo);
                         }
@@ -164,6 +151,7 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
     @Override
     public void onResume() {
         super.onResume();
+        getInfos(null);
     }
 
 
@@ -241,12 +229,6 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
                 }
                 dismiss();
                 break;
-            case R.id.tv_clear_history:
-                Uri uri = Uri.parse(DatabaseUtils.URI_SEARCH_SUGGESTION);
-                AppProperties.getContext().getContentResolver().delete(uri, null, null);
-                suggestions.clear();
-                adapter.notifyDataSetChanged();
-                break;
         }
     }
 
@@ -270,18 +252,6 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
 
     @Override
     public boolean onQueryTextSubmit(String query) {
-        boolean flag = false;
-        for (SearchInfo searchInfo : allSuggestions) {
-            if (searchInfo.getTitle().equals(query))
-                flag = true;
-        }
-        if (!flag) {
-            SearchInfo searchInfo = new SearchInfo(R.drawable.ic_history_black_24dp, query);
-            allSuggestions.add(searchInfo);
-            suggestions.clear();
-            suggestions.addAll(allSuggestions);
-            adapter.notifyDataSetChanged();
-        }
         dismiss();
         return false;
     }
@@ -308,7 +278,7 @@ public class SearchDialogFragment extends DialogFragment implements DialogInterf
 
     @Override
     public void dismiss() {
-        searchView.clearText();
+        searchView.setText(null);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             showAnimatorOut();
         } else {

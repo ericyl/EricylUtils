@@ -16,5 +16,9 @@
 #### 0.2.0
 * 新增 SearchDialogFragment 的使用
 
+#### 0.2.1
+* 完善 SearchDialogFragment
+* 新增 SearchableActivity
+
 
 

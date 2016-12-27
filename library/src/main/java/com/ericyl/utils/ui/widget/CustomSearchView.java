@@ -89,8 +89,8 @@ public class CustomSearchView extends SearchView {
         }
     }
 
-    public void clearText() {
-        searchAutoComplete.setText(null);
+    public void setText(String text) {
+        searchAutoComplete.setText(text);
     }
 
     private ColorStateList createDefaultColorStateList(int baseColorThemeAttr) {
