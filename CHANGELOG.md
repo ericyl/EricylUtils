@@ -20,3 +20,4 @@
 * 新增 SearchDialogFragment 使用
 * 完善 SearchDialogFragment
 * 新增 SearchableActivity
+* 新增 BaseSearchFragment

@@ -9,11 +9,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 
 import com.ericyl.example.R;
 import com.ericyl.example.model.ui_model.UtilsInHomeEntry;
-import com.ericyl.example.ui.BaseFragment;
+import com.ericyl.example.ui.BaseSearchFragment;
 import com.ericyl.example.ui.adapter.RVUtilsAdapter;
 
 import java.util.ArrayList;
@@ -22,7 +24,7 @@ import java.util.List;
 import butterknife.BindView;
 
 
-public class UtilsFragment extends BaseFragment {
+public class UtilsFragment extends BaseSearchFragment {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -75,6 +77,12 @@ public class UtilsFragment extends BaseFragment {
         actionBar.setTitle(R.string.utils);
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_utils, menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
 
