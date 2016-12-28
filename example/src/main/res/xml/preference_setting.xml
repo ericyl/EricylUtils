@@ -36,9 +36,13 @@
     <PreferenceCategory android:title="@string/other">
 
         <Preference
-            android:key="@string/key_clear_cache"
             android:persistent="false"
-            android:title="@string/clear_cache" />
+            android:title="@string/clear_cache">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:targetClass="@string/class_name_clear_cache"
+                android:targetPackage="@string/package_name" />
+        </Preference>
 
         <Preference
             android:key="@string/key_reset_init"
@@ -46,13 +50,9 @@
             android:title="@string/reset_init" />
 
         <Preference
+            android:key="@string/key_clear_search_history"
             android:persistent="false"
-            android:title="@string/clear_search_history">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:targetClass="@string/class_name_clear_search_history"
-                android:targetPackage="@string/package_name" />
-        </Preference>
+            android:title="@string/clear_search_history" />
 
         <PreferenceScreen
             android:fragment="com.ericyl.example.ui.activity.SettingActivity$AppInfoFragment"

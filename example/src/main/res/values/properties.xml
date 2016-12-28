@@ -5,13 +5,16 @@
 
     <string name="init_service">com.ericyl.example.initService</string>
 
-    <string name="class_name_clear_search_history">com.ericyl.example.ui.activity.ClearSearchHistoryActivity</string>
+    <string name="class_name_clear_cache">com.ericyl.example.ui.activity.ClearCacheActivity</string>
 
 
     <string name="key_theme_selection">ThemeSelection</string>
     <string name="theme_selection_default_value">0</string>
     <string name="key_disable_splash_screen">DisableSplashScreen</string>
     <string name="key_splash_screen_second">SplashScreenSecond</string>
+    <string name="key_clear_search_history">clear_search_history</string>
+    <string name="key_reset_init">reset_init</string>
+    <string name="key_app_info">app_info</string>
 
     <string name="key_crop_photo">CropPhoto</string>
     <string name="key_save_photo">SavePhoto</string>

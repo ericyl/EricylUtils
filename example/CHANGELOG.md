@@ -20,5 +20,6 @@
 * 完善 SearchDialogFragment
 * 新增 SearchableActivity
 * 新增 BaseSearchFragment
+* SettingFragment 完善清理搜索记录功能
 
 

@@ -3,6 +3,7 @@ package com.ericyl.example.ui.activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
@@ -13,6 +14,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import com.ericyl.example.R;
 import com.ericyl.example.event.ChangeThemeEvent;
@@ -20,12 +22,18 @@ import com.ericyl.example.model.FragmentTag;
 import com.ericyl.example.ui.BaseActivity;
 import com.ericyl.example.util.AppProperties;
 import com.ericyl.example.util.BusProvider;
+import com.ericyl.example.util.DatabaseUtils;
 import com.ericyl.utils.util.StringUtils;
 import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import rx.Observable;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.schedulers.Schedulers;
 
 
 public class SettingActivity extends BaseActivity {
@@ -189,6 +197,27 @@ public class SettingActivity extends BaseActivity {
         public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
             if (preference.getFragment() != null)
                 BusProvider.getInstance().post(new FragmentTag(preference.getTitle(), preference.getFragment()));
+            if (preference.getKey().equals(getString(R.string.key_clear_search_history))) {
+                Observable.create(new Observable.OnSubscribe<Void>() {
+
+                    @Override
+                    public void call(Subscriber<? super Void> subscriber) {
+                        AppProperties.getContext().getContentResolver().delete(Uri.parse(DatabaseUtils.URI_SEARCH_SUGGESTION), null, null);
+                        subscriber.onNext(null);
+                        subscriber.onCompleted();
+                    }
+                }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<Void>() {
+                    @Override
+                    public void call(Void aVoid) {
+                        Toast.makeText(AppProperties.getContext(), R.string.clear_search_history_success, Toast.LENGTH_SHORT).show();
+                    }
+                }, new Action1<Throwable>() {
+                    @Override
+                    public void call(Throwable throwable) {
+                        Toast.makeText(AppProperties.getContext(), R.string.clear_search_history_failed, Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
             return super.onPreferenceTreeClick(preferenceScreen, preference);
         }
 

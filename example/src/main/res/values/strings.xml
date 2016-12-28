@@ -41,13 +41,11 @@
     <string name="splash_screen_second_summary">设置启动界面停留时间</string>
     <string name="other">其他</string>
     <string name="clear_cache">清空缓存</string>
-    <string name="key_clear_cache">clear_cache</string>
     <string name="clear_search_history">清理搜索记录</string>
-    <string name="key_clear_search_history">clear_search_history</string>
+    <string name="clear_search_history_success">搜索记录清理成功</string>
+    <string name="clear_search_history_failed">搜索记录清理失败</string>
     <string name="reset_init">恢复初始设置</string>
-    <string name="key_reset_init">reset_init</string>
     <string name="app_info">应用信息</string>
-    <string name="key_app_info">app_info</string>
     <string name="copyright">©2016 Ericyl</string>
     <string name="check_for_updates">检查更新</string>
     <string name="key_check_for_updates">检查更新</string>

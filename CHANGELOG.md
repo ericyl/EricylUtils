@@ -17,7 +17,7 @@
 * 新增 InitService 用于 init 数据
 
 ### 0.2.x
-* 新增 SearchDialogFragment 使用
-* 完善 SearchDialogFragment
+* 新增并完善 SearchDialogFragment 使用
 * 新增 SearchableActivity
 * 新增 BaseSearchFragment
+* SettingFragment 完善清理搜索记录功能
