@@ -38,8 +38,9 @@ public class ScanBarcodeFragment extends BaseFragment implements View.OnClickLis
 
     @BindView(R.id.et_content)
     EditText etContent;
-    @BindView(R.id.aaa)
-    ImageView aaa;
+    @BindView(R.id.img_barcode)
+    ImageView imgBarcode;
+
     private FloatingActionMenu fabMoreMenu;
 
     public void setFabMoreMenu(FloatingActionMenu fabMoreMenu) {
@@ -49,7 +50,7 @@ public class ScanBarcodeFragment extends BaseFragment implements View.OnClickLis
     private static final int REQUEST_SCAN = 1;
     private static final int REQUEST_DISTINGUISH = 2;
 
-    private static final int REQUEST_PERMISSION_READ_STORAGE = 1;
+    private static final int REQUEST_PERMISSION_READ_STORAGE = 2;
 
 
 
@@ -65,7 +66,7 @@ public class ScanBarcodeFragment extends BaseFragment implements View.OnClickLis
     }
 
     @Subscribe
-    public void aaa(InitFabEvent event) {
+    public void initFab(InitFabEvent event) {
         if (event.getIdRes() != R.id.tab_scan_barcode) {
             this.fabMoreMenu = null;
         } else {
@@ -143,12 +144,12 @@ public class ScanBarcodeFragment extends BaseFragment implements View.OnClickLis
         }
     }
 
-    @OnLongClick({R.id.aaa})
+    @OnLongClick({R.id.img_barcode})
     @Override
     public boolean onLongClick(View view) {
         switch (view.getId()) {
-            case R.id.aaa:
-                Bitmap bitmap = ((BitmapDrawable) aaa.getDrawable()).getBitmap();
+            case R.id.img_barcode:
+                Bitmap bitmap = ((BitmapDrawable) imgBarcode.getDrawable()).getBitmap();
                 BarcodeDecoderUtils utils = new BarcodeDecoderUtils();
                 try {
                     Result scanResult = utils.getResult(bitmap);
@@ -171,8 +172,8 @@ public class ScanBarcodeFragment extends BaseFragment implements View.OnClickLis
 
     private void setPic(String fileName) {
         // Get the dimensions of the View
-        int targetW = aaa.getWidth();
-        int targetH = aaa.getHeight();
+        int targetW = imgBarcode.getWidth();
+        int targetH = imgBarcode.getHeight();
 
         // Get the dimensions of the bitmap
         BitmapFactory.Options bmOptions = new BitmapFactory.Options();
@@ -190,7 +191,7 @@ public class ScanBarcodeFragment extends BaseFragment implements View.OnClickLis
         bmOptions.inPurgeable = true;
 
         Bitmap bitmap = BitmapFactory.decodeFile(fileName, bmOptions);
-        aaa.setImageBitmap(bitmap);
+        imgBarcode.setImageBitmap(bitmap);
     }
 
 

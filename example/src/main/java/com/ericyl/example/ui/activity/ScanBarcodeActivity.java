@@ -23,7 +23,7 @@ import static com.ericyl.example.util.AppProperties.getContext;
 public class ScanBarcodeActivity extends BaseActivity implements ZXingScannerView.ResultHandler {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.aaa)
+    @BindView(R.id.scan_view)
     ZXingScannerView scannerView;
 
     private static final int REQUEST_PERMISSION_CAMERA = 1;

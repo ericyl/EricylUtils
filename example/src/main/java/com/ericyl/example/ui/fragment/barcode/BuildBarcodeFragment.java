@@ -14,12 +14,12 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.ericyl.example.R;
 import com.ericyl.example.event.InitFabEvent;
@@ -92,7 +92,7 @@ public class BuildBarcodeFragment extends BaseFragment implements View.OnClickLi
 
 
     @Subscribe
-    public void aaa(InitFabEvent event) {
+    public void initFab(InitFabEvent event) {
         if (event.getIdRes() != R.id.tab_build_barcode) {
             this.fabMoreMenu = null;
         } else {
@@ -128,7 +128,7 @@ public class BuildBarcodeFragment extends BaseFragment implements View.OnClickLi
                     @Override
                     public String call(String s) {
 //
-                        return QRCode.from(s).withHint(EncodeHintType.CHARACTER_SET, "UTF-8").withColor(ContextCompat.getColor(getContext(), R.color.blue), ColorUtils.COLOR_DARK_YELLOW).withSize(layoutContent.getWidth(), layoutContent.getHeight()).to(ImageType.PNG).file().getAbsolutePath();
+                        return QRCode.from(s).withHint(EncodeHintType.CHARACTER_SET, "UTF-8").withColor(ContextCompat.getColor(getContext(), R.color.blue), ColorUtils.COLOR_WHITE).withSize(layoutContent.getWidth(), layoutContent.getHeight()).to(ImageType.PNG).file().getAbsolutePath();
                     }
                 }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<String>() {
                     @Override
@@ -144,7 +144,7 @@ public class BuildBarcodeFragment extends BaseFragment implements View.OnClickLi
                 break;
             case R.id.fab_save:
                 if (PermissionUtils.checkPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE))
-                    aaa();
+                    saveToFile();
                 else
                     PermissionUtils.requestPermissions(getActivity(), REQUEST_PERMISSION_READ_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
                 fabMoreMenu.close(true);
@@ -185,7 +185,7 @@ public class BuildBarcodeFragment extends BaseFragment implements View.OnClickLi
                         flag = flag && (i == PackageManager.PERMISSION_GRANTED);
                     }
                     if (flag)
-                        aaa();
+                        saveToFile();
                     else
                         Snackbar.make(rootView, R.string.error_per, Snackbar.LENGTH_SHORT).show();
                     break;
@@ -193,7 +193,7 @@ public class BuildBarcodeFragment extends BaseFragment implements View.OnClickLi
         }
     }
 
-    private void aaa() {
+    private void saveToFile() {
         Observable.create(new Observable.OnSubscribe<String>() {
             @Override
             public void call(Subscriber<? super String> subscriber) {
@@ -214,12 +214,11 @@ public class BuildBarcodeFragment extends BaseFragment implements View.OnClickLi
                     return;
                 Cursor cursor = null;
                 try {
-                    String[] proj = {MediaStore.Images.Media.DATA};
-                    cursor = getContext().getContentResolver().query(Uri.parse(s), proj, null, null, null);
-                    int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-                    cursor.moveToFirst();
-                    String ss = cursor.getString(column_index);
-                    Toast.makeText(getContext(), "aaa: " + ss, Toast.LENGTH_SHORT).show();
+                    cursor = getContext().getContentResolver().query(Uri.parse(s), new String[]{MediaStore.Images.Media.DATA}, null, null, null);
+                    if (cursor != null && cursor.moveToFirst()) {
+                        String index = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA));
+                        Log.v("index", index);
+                    }
                 } finally {
                     if (cursor != null) {
                         cursor.close();

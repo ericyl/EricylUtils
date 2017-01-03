@@ -9,7 +9,7 @@
     <include layout="@layout/layout_toolbar" />
 
     <me.dm7.barcodescanner.zxing.ZXingScannerView
-        android:id="@+id/aaa"
+        android:id="@+id/scan_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:shouldScaleToFill="true" />

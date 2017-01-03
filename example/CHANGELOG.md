@@ -28,4 +28,7 @@
 * 新增 DownloadManager 方法(待更新)
 * 增加 Root 后重启以及静默卸载本系统功能
 
+#### 0.3.1
+* 更新 Barcode 相关
+
 

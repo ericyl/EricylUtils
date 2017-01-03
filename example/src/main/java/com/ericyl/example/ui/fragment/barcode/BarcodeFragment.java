@@ -222,7 +222,7 @@ public class BarcodeFragment extends BaseFragment {
     }
 
     @Subscribe
-    public void aaa1(SendFabEvent event) {
+    public void sendFab(SendFabEvent event) {
         BusProvider.getInstance().post(new InitFabEvent(event.getIdRes(), fabMoreMenu));
     }
 
