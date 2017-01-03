@@ -5,7 +5,7 @@
 
     <data>
 
-        <import type="com.ericyl.example.model.ui_model.BarcodeInHomeModel" />
+        <import type="com.ericyl.example.model.ui.BarcodeInHomeModel" />
 
         <import type="java.util.Map" />
 

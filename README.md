@@ -51,3 +51,7 @@ Android 控件及公共类的封装, 以及对其他第三方类库的重载
 
 ## example (last version: 0.2.0)
 重构中...
+
+
+## TODO
+* 由于系统的 DownloadManager 不支持用户 pause/resume 操作，将重构 DownloadService

@@ -1,4 +1,4 @@
-package com.ericyl.example.model.ui_model;
+package com.ericyl.example.model.ui;
 
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;

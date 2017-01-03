@@ -80,6 +80,10 @@
     <string name="decrypt">解密</string>
     <string name="save_key">保存密钥</string>
 
+    <string name="source_text_is_null">原文不能为空，无法加密</string>
+    <string name="cipher_text_is_null">密文未生成，无法解密</string>
+    <string name="secret_key_is_null">密钥为空，请点击生成或读取</string>
+
 
     <string name="take_photo_setting_label">拍照设置</string>
     <string name="save_function">保存功能</string>
@@ -99,6 +103,13 @@
 
     <string name="single_recycler_view">Single</string>
     <string name="multilayer_recycler_view">Multilayer</string>
+
+    <string name="reboot">重启</string>
+    <string name="uninstall">卸载本应用</string>
+
+    <string name="retry">重试</string>
+    <string name="start">开始</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -143,11 +143,11 @@ public class AESCryptoActivity extends BaseActivity implements View.OnClickListe
             case R.id.btn_encrypt:
                 String source = etSource.getText().toString();
                 if (TextUtils.isEmpty(source)) {
-                    Snackbar.make(etSource, "is null", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(etSource, R.string.source_text_is_null, Snackbar.LENGTH_SHORT).show();
                     return;
                 }
                 if (secretKey == null) {
-                    Snackbar.make(etSource, "aaaa", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(etSource, R.string.secret_key_is_null, Snackbar.LENGTH_SHORT).show();
                     return;
                 }
                 try {
@@ -161,11 +161,11 @@ public class AESCryptoActivity extends BaseActivity implements View.OnClickListe
             case R.id.btn_decrypt:
                 String enc = tvCipher.getText().toString();
                 if (TextUtils.isEmpty(enc)) {
-                    Snackbar.make(tvCipher, "is null", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(tvCipher, R.string.cipher_text_is_null, Snackbar.LENGTH_SHORT).show();
                     return;
                 }
                 if (secretKey == null) {
-                    Snackbar.make(tvCipher, "aaaa", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(tvCipher, R.string.secret_key_is_null, Snackbar.LENGTH_SHORT).show();
                     return;
                 }
                 try {

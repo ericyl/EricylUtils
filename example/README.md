@@ -19,13 +19,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
-### Example使用gradle配置第三方类库:
+### Example 使用gradle配置第三方类库:
 * `com.android.support:appcompat-v7` Library [Android Developer](https://developer.android.com/topic/libraries/support-library/features.html#v7)
 * `com.android.support:design` Library [Android Developer](https://developer.android.com/topic/libraries/support-library/features.html#design)
 * `com.android.support:cardview-v7` Library [Android Developer](https://developer.android.com/topic/libraries/support-library/features.html#v7)
 * `com.android.support:recyclerview-v7` Library [Android Developer](https://developer.android.com/topic/libraries/support-library/features.html#v7)
 * `com.android.support:support-v4` Library [Android Developer](https://developer.android.com/topic/libraries/support-library/features.html#v4)
 ...
+
+### Example 下载配置lib
+* `RootShell`[GitHub](https://github.com/Stericson/RootShell)
 
 ### Open Source Licenses:
 * `Android Annotations Support Library`: [Apache-2.0](https://source.android.com/source/licenses.html#android-open-source-project-license)
@@ -49,3 +52,6 @@ limitations under the License.
 * `SQLCipher`: [BSD-3-Clause](https://raw.githubusercontent.com/sqlcipher/android-database-sqlcipher/master/SQLCIPHER_LICENSE)
 * `XmlPull`: [public domain](https://raw.githubusercontent.com/mosabua/xmlpull/master/LICENSE.txt)
 * `XZing`: [Apache-2.0](https://raw.githubusercontent.com/zxing/zxing/master/LICENSE)
+
+### TODO
+* 由于系统的 DownloadManager 不支持用户 pause/resume 操作，将重构 DownloadService

@@ -31,7 +31,7 @@ import android.view.animation.TranslateAnimation;
 import android.widget.Filter;
 
 import com.ericyl.example.R;
-import com.ericyl.example.model.ui_model.SearchInfo;
+import com.ericyl.example.model.ui.SearchInfo;
 import com.ericyl.example.ui.adapter.RVSearchSuggestionAdapter;
 import com.ericyl.example.util.AppProperties;
 import com.ericyl.example.util.DatabaseUtils;

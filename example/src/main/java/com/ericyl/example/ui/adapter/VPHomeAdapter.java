@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.view.ViewGroup;
 
-import com.ericyl.example.model.ui_model.TabInfo;
+import com.ericyl.example.model.ui.TabInfo;
 
 import java.util.List;
 

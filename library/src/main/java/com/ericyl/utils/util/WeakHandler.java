@@ -5,7 +5,6 @@ import android.os.Message;
 
 import java.lang.ref.WeakReference;
 
-@Deprecated
 public class WeakHandler<T> extends Handler {
 
     private WeakReference<T> reference;

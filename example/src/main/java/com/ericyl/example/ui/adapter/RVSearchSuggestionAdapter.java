@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ericyl.example.R;
-import com.ericyl.example.model.ui_model.SearchInfo;
+import com.ericyl.example.model.ui.SearchInfo;
 
 import java.util.List;
 

@@ -28,8 +28,6 @@
     <item name="package_utils" type="id" />
     <item name="phone_manufacturer_utils" type="id" />
     <item name="clear_cache_utils" type="id" />
-    <item name="permission_utils" type="id" />
-    <item name="wps_office_utils" type="id" />
     <item name="root_utils" type="id" />
     <item name="others_utils" type="id" />
 

@@ -22,4 +22,10 @@
 * 新增 BaseSearchFragment
 * SettingFragment 完善清理搜索记录功能
 
+### 0.3.x
+
+#### 0.3.0
+* 新增 DownloadManager 方法(待更新)
+* 增加 Root 后重启以及静默卸载本系统功能
+
 

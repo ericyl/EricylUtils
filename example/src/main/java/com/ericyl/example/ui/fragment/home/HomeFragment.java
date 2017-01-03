@@ -14,7 +14,7 @@ import android.view.View;
 
 import com.ericyl.example.R;
 import com.ericyl.example.event.JumpHomeTabEvent;
-import com.ericyl.example.model.ui_model.TabInfo;
+import com.ericyl.example.model.ui.TabInfo;
 import com.ericyl.example.ui.BaseFragment;
 import com.ericyl.example.ui.adapter.VPHomeAdapter;
 import com.ericyl.example.util.AppProperties;

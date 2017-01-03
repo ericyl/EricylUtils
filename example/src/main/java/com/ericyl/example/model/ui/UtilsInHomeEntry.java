@@ -1,4 +1,4 @@
-package com.ericyl.example.model.ui_model;
+package com.ericyl.example.model.ui;
 
 import android.support.annotation.ArrayRes;
 import android.support.annotation.ColorRes;

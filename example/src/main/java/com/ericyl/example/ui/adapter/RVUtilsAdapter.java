@@ -11,17 +11,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ericyl.example.R;
-import com.ericyl.example.model.ui_model.UtilsInHomeEntry;
+import com.ericyl.example.model.ui.UtilsInHomeEntry;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
-
-/**
- * Created by ericyl on 2016/10/15.
- */
 
 public class RVUtilsAdapter extends RecyclerView.Adapter<RVUtilsAdapter.ViewHolder> {
 

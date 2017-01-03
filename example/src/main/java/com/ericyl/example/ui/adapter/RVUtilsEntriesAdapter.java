@@ -10,7 +10,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ericyl.example.R;
+import com.ericyl.example.ui.activity.DownloadActivity;
 import com.ericyl.example.ui.activity.RecyclerViewActivity;
+import com.ericyl.example.ui.activity.RootActivity;
 import com.ericyl.utils.util.ActivityUtils;
 
 import butterknife.BindView;
@@ -34,7 +36,7 @@ public class RVUtilsEntriesAdapter extends RecyclerView.Adapter<RVUtilsEntriesAd
         uiIds = new int[]{R.id.recyclerview_utils, R.id.report_utils};
         networkIds = new int[]{R.id.download_utils, R.id.wifi_utils};
         osIds = new int[]{R.id.os_info_utils, R.id.package_utils, R.id.phone_manufacturer_utils, R.id.clear_cache_utils};
-        otherIds = new int[]{R.id.permission_utils, R.id.wps_office_utils, R.id.root_utils, R.id.others_utils};
+        otherIds = new int[]{R.id.root_utils, R.id.others_utils};
     }
 
 
@@ -92,6 +94,12 @@ public class RVUtilsEntriesAdapter extends RecyclerView.Adapter<RVUtilsEntriesAd
         switch (idRes) {
             case R.id.recyclerview_utils:
                 ActivityUtils.jumpActivity(context, RecyclerViewActivity.class);
+                break;
+            case R.id.root_utils:
+                ActivityUtils.jumpActivity(context, RootActivity.class);
+                break;
+            case R.id.download_utils:
+                ActivityUtils.jumpActivity(context, DownloadActivity.class);
                 break;
         }
 

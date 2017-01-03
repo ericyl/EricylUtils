@@ -1,4 +1,4 @@
-package com.ericyl.example.model.ui_model;
+package com.ericyl.example.model.ui;
 
 import android.content.Context;
 import android.support.annotation.ColorInt;

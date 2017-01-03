@@ -38,6 +38,7 @@ limitations under the License.
 * `KXml2`: [MIT](https://raw.githubusercontent.com/mosabua/kxml2/master/license.txt)
 * `Otto`: [Apache-2.0](https://raw.githubusercontent.com/square/otto/master/LICENSE.txt)
 * `RichText`: [MIT](https://raw.githubusercontent.com/zzhoujay/RichText/master/LICENSE)
+* `RootShell`: [Apache-2.0 + GPL-2.0](https://github.com/Stericson/RootShell/wiki/Licensing)
 * `SQLCipher`: [BSD-3-Clause](https://raw.githubusercontent.com/sqlcipher/android-database-sqlcipher/master/SQLCIPHER_LICENSE)
 * `XmlPull`: [public domain](https://raw.githubusercontent.com/mosabua/xmlpull/master/LICENSE.txt)
 * `XZing`: [Apache-2.0](https://raw.githubusercontent.com/zxing/zxing/master/LICENSE)

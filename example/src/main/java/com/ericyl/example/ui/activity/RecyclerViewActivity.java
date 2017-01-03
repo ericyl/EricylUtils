@@ -8,7 +8,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 
 import com.ericyl.example.R;
-import com.ericyl.example.model.ui_model.TabInfo;
+import com.ericyl.example.model.ui.TabInfo;
 import com.ericyl.example.ui.BaseActivity;
 import com.ericyl.example.ui.adapter.VPRecyclerViewAdapter;
 import com.ericyl.example.ui.fragment.recyclerview.MultilayerRecyclerViewFragment;

@@ -15,7 +15,7 @@ import android.widget.ImageView;
 
 import com.ericyl.example.R;
 import com.ericyl.example.event.InitFabEvent;
-import com.ericyl.example.model.ui_model.FabButton;
+import com.ericyl.example.model.ui.FabButton;
 import com.ericyl.example.ui.BaseFragment;
 import com.ericyl.example.ui.activity.ScanBarcodeActivity;
 import com.ericyl.example.util.BusProvider;

@@ -1,4 +1,4 @@
-package com.ericyl.example.model.ui_model;
+package com.ericyl.example.model.ui;
 
 import android.support.annotation.DrawableRes;
 import android.support.annotation.IdRes;

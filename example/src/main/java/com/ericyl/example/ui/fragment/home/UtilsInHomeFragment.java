@@ -24,7 +24,7 @@ public class UtilsInHomeFragment extends BaseSearchFragment {
     private static final int[] ids;
 
     static {
-        ids = new int[]{R.id.recyclerview_utils, R.id.download_utils, R.id.permission_utils, R.id.wps_office_utils, R.id.more_utils};
+        ids = new int[]{R.id.recyclerview_utils, R.id.download_utils, R.id.more_utils};
     }
 
 

@@ -14,7 +14,7 @@ import android.view.MenuInflater;
 import android.view.View;
 
 import com.ericyl.example.R;
-import com.ericyl.example.model.ui_model.UtilsInHomeEntry;
+import com.ericyl.example.model.ui.UtilsInHomeEntry;
 import com.ericyl.example.ui.BaseSearchFragment;
 import com.ericyl.example.ui.adapter.RVUtilsAdapter;
 

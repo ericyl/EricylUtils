@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import com.ericyl.example.R;
 import com.ericyl.example.databinding.FragmentBarcodeInHomeBinding;
 import com.ericyl.example.event.JumpNavPageEvent;
-import com.ericyl.example.model.ui_model.BarcodeInHomeModel;
+import com.ericyl.example.model.ui.BarcodeInHomeModel;
 import com.ericyl.example.util.AppProperties;
 import com.ericyl.example.util.BusProvider;
 

@@ -4,6 +4,7 @@
     <string name="package_name">com.ericyl.example</string>
 
     <string name="init_service">com.ericyl.example.initService</string>
+    <string name="download_permission">com.ericyl.example.DOWNLOAD_PERMISSION</string>
 
     <string name="class_name_clear_cache">com.ericyl.example.ui.activity.ClearCacheActivity</string>
 

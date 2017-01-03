@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ericyl.example.R;
-import com.ericyl.example.model.ui_model.SearchInfo;
+import com.ericyl.example.model.ui.SearchInfo;
 import com.ericyl.example.ui.BaseActivity;
 import com.ericyl.example.ui.adapter.RVSearchSuggestionAdapter;
 import com.ericyl.example.util.DatabaseUtils;
