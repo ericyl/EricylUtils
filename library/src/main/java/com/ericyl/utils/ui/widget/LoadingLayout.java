@@ -35,6 +35,8 @@ public class LoadingLayout extends LinearLayout {
     private OnClickListener onLoadingClickListener;
     private OnClickListener onFailedClickListener;
     private OnClickListener onFinishClickListener;
+    @LoadStatus
+    private int loadStatus;
 
     public ProgressBar getPbLoading() {
         return pbLoading;
@@ -145,6 +147,12 @@ public class LoadingLayout extends LinearLayout {
                 showFinish();
                 break;
         }
+        loadStatus = status;
+    }
+
+    @LoadStatus
+    public int getLoadStatus() {
+        return loadStatus;
     }
 
     private void showLoading() {

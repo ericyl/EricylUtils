@@ -10,13 +10,15 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.ericyl.example.R;
 import com.ericyl.example.event.JumpHomeTabEvent;
 import com.ericyl.example.model.ui.TabInfo;
-import com.ericyl.example.ui.BaseFragment;
 import com.ericyl.example.ui.adapter.VPHomeAdapter;
+import com.ericyl.example.ui.fragment.BaseFragment;
 import com.ericyl.example.util.AppProperties;
 import com.ericyl.example.util.BusProvider;
 import com.ericyl.utils.util.StringUtils;
@@ -26,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class HomeFragment extends BaseFragment {
 
@@ -69,9 +72,12 @@ public class HomeFragment extends BaseFragment {
         activity = (AppCompatActivity) getActivity();
     }
 
+    @Nullable
     @Override
-    public int getContentViewId() {
-        return R.layout.fragment_home;
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        unbinder = ButterKnife.bind(this, view);
+        return view;
     }
 
 

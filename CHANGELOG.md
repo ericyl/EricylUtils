@@ -3,10 +3,17 @@
 ## library
 
 ### 0.1.x
+#### 2016
 * Clean up
 * 新增 `CustomSearchView`: `setText()` 方法
 * WeakHandler 取消 Deprecated
 * DownloadAllowedNetworkTypes 新增 ALL 状态码
+
+#### 2017.03.06
+* 还原旧版 `recyclerviw`代码
+* 新增 `CountUpTimer`
+* 新增 `DateUtils` 方法
+* 修改 `android support library` 版本为 `25.2.0`
 
 
 ---
@@ -28,3 +35,6 @@
 * 新增 DownloadManager 方法(待更新)
 * 增加 Root 后重启以及静默卸载本系统功能
 * 更新 Barcode 相关
+* 更新 Base 类
+* 更新 library 版本
+* 新增旧版 RecyclerView 加载更多代码

@@ -15,7 +15,6 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
-import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -25,7 +24,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.ericyl.example.R;
-import com.ericyl.example.ui.BaseActivity;
 import com.ericyl.utils.util.ActivityUtils;
 import com.ericyl.utils.util.DateUtils;
 import com.ericyl.utils.util.PermissionUtils;
@@ -37,6 +35,7 @@ import java.io.IOException;
 import java.util.Date;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 import static com.ericyl.example.util.AppProperties.getContext;
 
@@ -60,11 +59,6 @@ public class TakePhotoActivity extends BaseActivity {
     private String currentPhotoPath;
     private String tmpPhotoPath;
 
-    @Override
-    public int getContentViewId() {
-        return R.layout.activity_take_photo;
-    }
-
     private static final int REQUEST_IMAGE_CAPTURE_WITHOUT_SAVE = 1;
     private static final int REQUEST_IMAGE_CAPTURE_WITH_SAVE_PRIVATE = 2;
     private static final int REQUEST_IMAGE_CAPTURE = 3;
@@ -73,6 +67,13 @@ public class TakePhotoActivity extends BaseActivity {
     private static final int REQUEST_PERMISSION_CAMERA_SAVE_PRIVATE = 2;
     private static final int REQUEST_PERMISSION_CAMERA_WRITE_STORAGE = 3;
     private static final int REQUEST_PERMISSION_READ_STORAGE = 4;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_take_photo);
+        unbinder = ButterKnife.bind(this);
+    }
 
     @Override
     protected void onResume() {
@@ -98,6 +99,7 @@ public class TakePhotoActivity extends BaseActivity {
     @Override
     protected void init(@Nullable Bundle savedInstanceState) {
         super.init(savedInstanceState);
+        initActionBar(toolbar);
 
         btnTakePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -193,15 +195,6 @@ public class TakePhotoActivity extends BaseActivity {
         return image;
     }
 
-
-    @Override
-    protected void initActionBar() {
-        super.initActionBar();
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null)
-            actionBar.setDisplayHomeAsUpEnabled(true);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

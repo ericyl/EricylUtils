@@ -1,10 +1,15 @@
 package com.ericyl.example.ui.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.ericyl.example.R;
-import com.ericyl.example.ui.BaseFragment;
+
+import butterknife.ButterKnife;
 
 
 /**
@@ -55,9 +60,12 @@ public class BlankFragment extends BaseFragment {
         }
     }
 
+    @Nullable
     @Override
-    public int getContentViewId() {
-        return R.layout.fragment_blank;
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_blank, container, false);
+        unbinder = ButterKnife.bind(this, view);
+        return view;
     }
 
 }

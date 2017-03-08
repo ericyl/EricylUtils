@@ -19,8 +19,8 @@ import android.widget.TextView;
 
 import com.ericyl.example.R;
 import com.ericyl.example.model.ui.SearchInfo;
-import com.ericyl.example.ui.BaseActivity;
 import com.ericyl.example.ui.adapter.RVSearchSuggestionAdapter;
+import com.ericyl.example.ui.fragment.recyclerview.IClickListener;
 import com.ericyl.example.util.DatabaseUtils;
 import com.ericyl.example.util.SearchSuggestionTableUtils;
 import com.ericyl.utils.ui.widget.CustomSearchView;
@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
@@ -40,7 +41,7 @@ import static com.ericyl.example.R.id.rv_suggestion;
 import static com.ericyl.example.util.AppProperties.getContext;
 
 
-public class SearchableActivity extends BaseActivity implements RVSearchSuggestionAdapter.IClickListener, CustomSearchView.ISearchViewController, SearchView.OnQueryTextListener, View.OnClickListener {
+public class SearchableActivity extends BaseActivity implements IClickListener, CustomSearchView.ISearchViewController, SearchView.OnQueryTextListener, View.OnClickListener {
 
     @BindView(R.id.tv_search_result)
     TextView tvSearchResult;
@@ -58,8 +59,10 @@ public class SearchableActivity extends BaseActivity implements RVSearchSuggesti
     private String old;
 
     @Override
-    public int getContentViewId() {
-        return R.layout.activity_searchable;
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_searchable);
+        unbinder = ButterKnife.bind(this);
     }
 
     @Override

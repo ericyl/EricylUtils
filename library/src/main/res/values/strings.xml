@@ -49,4 +49,9 @@
     <string name="message_error">加载失败，请点击重新尝试</string>
     <string name="message_finish">已全部加载!</string>
 
+
+    <string name="last_day_hour_minute">%1$d天%2$d时%3$d分</string>
+    <string name="last_hour_minute">%1$d时%2$d分</string>
+    <string name="last_minute">%1$d分</string>
+
 </resources>

@@ -1,6 +1,4 @@
-# EricylUtils
-
-## library (last version: 0.1.0)
+# library
 所有已使用的技术集合工具类库
 重构中...
 

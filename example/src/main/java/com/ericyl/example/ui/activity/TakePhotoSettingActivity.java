@@ -11,19 +11,18 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.MenuItem;
 
 import com.ericyl.example.R;
 import com.ericyl.example.model.FragmentTag;
-import com.ericyl.example.ui.BaseActivity;
 import com.ericyl.example.util.BusProvider;
 import com.ericyl.utils.ui.widget.support.preference.RadioGroupPreference;
 import com.squareup.otto.Subscribe;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 public class TakePhotoSettingActivity extends BaseActivity {
@@ -34,22 +33,15 @@ public class TakePhotoSettingActivity extends BaseActivity {
 
 
     @Override
-    public int getContentViewId() {
-        return R.layout.activity_setting;
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_setting);
+        unbinder = ButterKnife.bind(this);
     }
 
     @Override
     public void init(@Nullable Bundle savedInstanceState) {
-        initActionBar();
-
-    }
-
-    @Override
-    public void initActionBar() {
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null)
-            actionBar.setDisplayHomeAsUpEnabled(true);
+        initActionBar(toolbar);
 
     }
 

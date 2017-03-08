@@ -15,6 +15,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
@@ -24,8 +25,8 @@ import com.ericyl.example.event.InitFabEvent;
 import com.ericyl.example.event.SendFabEvent;
 import com.ericyl.example.model.ui.FabButton;
 import com.ericyl.example.model.ui.TabInfo;
-import com.ericyl.example.ui.BaseFragment;
 import com.ericyl.example.ui.adapter.VPBarcodeAdapter;
+import com.ericyl.example.ui.fragment.BaseFragment;
 import com.ericyl.example.util.AppProperties;
 import com.ericyl.example.util.BusProvider;
 import com.ericyl.utils.util.StringUtils;
@@ -38,6 +39,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class BarcodeFragment extends BaseFragment {
 
@@ -85,9 +87,12 @@ public class BarcodeFragment extends BaseFragment {
         activity = (AppCompatActivity) getActivity();
     }
 
+    @Nullable
     @Override
-    public int getContentViewId() {
-        return R.layout.activity_barcode;
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_barcode, container, false);
+        unbinder = ButterKnife.bind(this, view);
+        return view;
     }
 
 

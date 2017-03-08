@@ -22,8 +22,7 @@ import android.widget.Toast;
 import com.ericyl.example.R;
 import com.ericyl.example.event.ChangeThemeEvent;
 import com.ericyl.example.event.JumpNavPageEvent;
-import com.ericyl.example.ui.BaseActivity;
-import com.ericyl.example.ui.BaseFragment;
+import com.ericyl.example.ui.fragment.BaseFragment;
 import com.ericyl.example.ui.fragment.AboutFragment;
 import com.ericyl.example.ui.fragment.FeedbackFragment;
 import com.ericyl.example.ui.fragment.HelpFragment;
@@ -38,6 +37,7 @@ import com.squareup.otto.Subscribe;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class HomeActivity extends BaseActivity {
 
@@ -81,6 +81,13 @@ public class HomeActivity extends BaseActivity {
 
 
     @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home);
+        unbinder = ButterKnife.bind(this);
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         BusProvider.getInstance().register(this);
@@ -93,12 +100,7 @@ public class HomeActivity extends BaseActivity {
     }
 
     @Override
-    public int getContentViewId() {
-        return R.layout.activity_home;
-    }
-
-    @Override
-    protected void init(@Nullable Bundle savedInstanceState) {
+    void init(@Nullable Bundle savedInstanceState) {
         super.init(savedInstanceState);
         fragmentManager = getSupportFragmentManager();
         if (savedInstanceState != null)

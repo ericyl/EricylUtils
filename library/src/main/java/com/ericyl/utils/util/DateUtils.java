@@ -1,7 +1,10 @@
 package com.ericyl.utils.util;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.support.annotation.NonNull;
+
+import com.ericyl.utils.R;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -48,6 +51,11 @@ public class DateUtils {
     public static final String DATETIME_ALL_OTHER = "yyyyMMddHHmmssSSS";
     public static final String DATETIME_ALL = "yyyy-MM-dd HH:mm:ss.SSSZ E";
 
+    public static final int DAY_MILLIS = 24 * 60 * 60 * 1000;
+    public static final int HOUR_MILLIS = 60 * 60 * 1000;
+    public static final int MINUTE_MILLIS = 60 * 1000;
+    public static final int SECOND_MILLIS = 1000;
+
     @SuppressLint("SimpleDateFormat")
     public static String getString(@NonNull Date date, @NonNull String format) {
         SimpleDateFormat formatter = new SimpleDateFormat(format);
@@ -63,6 +71,36 @@ public class DateUtils {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public static String getLastMinuteString(@NonNull Context context, long time) {
+        int days = 0;
+        if (time > DAY_MILLIS) {
+            days = (int) (time / DAY_MILLIS);
+            time = time - days * DAY_MILLIS;
+        }
+        int hours = 0;
+        if (time > HOUR_MILLIS) {
+            hours = (int) (time / HOUR_MILLIS);
+            time = time - hours * HOUR_MILLIS;
+        }
+        int minutes = 0;
+        if (time > MINUTE_MILLIS) {
+            minutes = (int) (time / MINUTE_MILLIS);
+            time = time - minutes * MINUTE_MILLIS;
+        }
+        if (time > SECOND_MILLIS) {
+            minutes += 1;
+        }
+        String str;
+        if (days > 0) {
+            str = String.format(context.getString(R.string.last_day_hour_minute), days, hours, minutes);
+        } else if (hours > 0) {
+            str = String.format(context.getString(R.string.last_hour_minute), hours, minutes);
+        } else {
+            str = String.format(context.getString(R.string.last_minute), minutes);
+        }
+        return str;
     }
 
 }

@@ -1,4 +1,4 @@
-package com.ericyl.example.ui;
+package com.ericyl.example.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

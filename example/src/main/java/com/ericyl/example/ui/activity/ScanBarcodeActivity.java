@@ -6,16 +6,15 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
 import com.ericyl.example.R;
-import com.ericyl.example.ui.BaseActivity;
 import com.ericyl.utils.util.PermissionUtils;
 import com.google.zxing.Result;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 import static com.ericyl.example.util.AppProperties.getContext;
@@ -29,8 +28,10 @@ public class ScanBarcodeActivity extends BaseActivity implements ZXingScannerVie
     private static final int REQUEST_PERMISSION_CAMERA = 1;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_scan_barcode);
+        unbinder = ButterKnife.bind(this);
         if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
             Toast.makeText(getContext(), "aaa", Toast.LENGTH_SHORT).show();
             onBackPressed();
@@ -42,23 +43,9 @@ public class ScanBarcodeActivity extends BaseActivity implements ZXingScannerVie
     }
 
     @Override
-    public int getContentViewId() {
-        return R.layout.activity_scan_barcode;
-    }
-
-    @Override
-    protected void init(@Nullable Bundle savedInstanceState) {
+    void init(@Nullable Bundle savedInstanceState) {
         super.init(savedInstanceState);
-    }
-
-    @Override
-    protected void initActionBar() {
-        super.initActionBar();
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar == null)
-            return;
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        initActionBar(toolbar);
     }
 
     @Override

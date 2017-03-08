@@ -4,7 +4,6 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Base64;
@@ -14,7 +13,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.ericyl.example.R;
-import com.ericyl.example.ui.BaseActivity;
 import com.ericyl.example.util.AESTableUtils;
 import com.ericyl.example.util.AppProperties;
 import com.ericyl.example.util.DatabaseUtils;
@@ -28,6 +26,7 @@ import java.io.File;
 import javax.crypto.SecretKey;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
@@ -53,13 +52,16 @@ public class AESCryptoActivity extends BaseActivity implements View.OnClickListe
     private String name, type, keyStorePwd, secretKeyEntryAlias, secretKeyEntryPwd;
 
     @Override
-    public int getContentViewId() {
-        return R.layout.activity_aes_crypto;
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_aes_crypto);
+        unbinder = ButterKnife.bind(this);
     }
 
     @Override
-    protected void init(@Nullable Bundle savedInstanceState) {
+    void init(@Nullable Bundle savedInstanceState) {
         super.init(savedInstanceState);
+        initActionBar(toolbar);
         iv = Base64.decode("e+YXMeMgVaQLjtQt4AlmkQ==", Base64.NO_WRAP);
 //        iv = AESKeyStoreUtils.getRandomIv();
         Log.v("iv", Base64.encodeToString(iv, Base64.NO_WRAP));
@@ -113,14 +115,6 @@ public class AESCryptoActivity extends BaseActivity implements View.OnClickListe
         });
     }
 
-    @Override
-    protected void initActionBar() {
-        super.initActionBar();
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null)
-            actionBar.setDisplayHomeAsUpEnabled(true);
-    }
 
     @OnClick({R.id.create_key, R.id.read_key, R.id.btn_encrypt, R.id.btn_decrypt, R.id.save_key})
     @Override

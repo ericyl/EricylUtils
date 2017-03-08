@@ -9,19 +9,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.ericyl.example.R;
 import com.ericyl.example.model.ui.UtilsInHomeEntry;
-import com.ericyl.example.ui.BaseSearchFragment;
 import com.ericyl.example.ui.adapter.RVUtilsAdapter;
+import com.ericyl.example.ui.fragment.BaseSearchFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 public class UtilsFragment extends BaseSearchFragment {
@@ -47,9 +50,12 @@ public class UtilsFragment extends BaseSearchFragment {
     }
 
 
+    @Nullable
     @Override
-    public int getContentViewId() {
-        return R.layout.fragment_utils;
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_utils, container, false);
+        unbinder = ButterKnife.bind(this, view);
+        return view;
     }
 
     @Override

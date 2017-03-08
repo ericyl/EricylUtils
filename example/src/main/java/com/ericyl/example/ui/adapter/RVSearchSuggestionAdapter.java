@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.ericyl.example.R;
 import com.ericyl.example.model.ui.SearchInfo;
+import com.ericyl.example.ui.fragment.recyclerview.IClickListener;
 
 import java.util.List;
 
@@ -22,10 +23,6 @@ public class RVSearchSuggestionAdapter extends RecyclerView.Adapter<RVSearchSugg
     private List<SearchInfo> searchInfos;
 
     private IClickListener clickListener;
-
-    public interface IClickListener {
-        void onItemClickListener(int position);
-    }
 
     public void setClickListener(IClickListener clickListener) {
         this.clickListener = clickListener;

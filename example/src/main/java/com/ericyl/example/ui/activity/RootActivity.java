@@ -1,12 +1,12 @@
 package com.ericyl.example.ui.activity;
 
-import android.support.v7.app.ActionBar;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
 import com.ericyl.example.R;
-import com.ericyl.example.ui.BaseActivity;
 import com.ericyl.example.util.AppProperties;
 import com.stericson.RootShell.exceptions.RootDeniedException;
 import com.stericson.RootShell.execution.JavaCommand;
@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class RootActivity extends BaseActivity implements View.OnClickListener {
@@ -28,17 +29,16 @@ public class RootActivity extends BaseActivity implements View.OnClickListener {
     private static final String CMD_UNINSTALL = "pm uninstall " + AppProperties.getContext().getPackageName();
 
     @Override
-    public int getContentViewId() {
-        return R.layout.activity_root;
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_root);
+        unbinder = ButterKnife.bind(this);
     }
 
     @Override
-    protected void initActionBar() {
-        super.initActionBar();
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null)
-            actionBar.setDisplayHomeAsUpEnabled(true);
+    void init(Bundle savedInstanceState) {
+        super.init(savedInstanceState);
+        initActionBar(toolbar);
     }
 
     @OnClick({R.id.btn_uninstall, R.id.btn_reboot})

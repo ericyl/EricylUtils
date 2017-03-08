@@ -9,15 +9,17 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.ericyl.example.R;
 import com.ericyl.example.event.InitFabEvent;
 import com.ericyl.example.model.ui.FabButton;
-import com.ericyl.example.ui.BaseFragment;
 import com.ericyl.example.ui.activity.ScanBarcodeActivity;
+import com.ericyl.example.ui.fragment.BaseFragment;
 import com.ericyl.example.util.BusProvider;
 import com.ericyl.utils.util.BarcodeDecoderUtils;
 import com.ericyl.utils.util.FileUtils;
@@ -30,6 +32,7 @@ import com.squareup.otto.Subscribe;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnLongClick;
 
 import static android.app.Activity.RESULT_OK;
@@ -53,10 +56,12 @@ public class ScanBarcodeFragment extends BaseFragment implements View.OnClickLis
     private static final int REQUEST_PERMISSION_READ_STORAGE = 2;
 
 
-
+    @Nullable
     @Override
-    public int getContentViewId() {
-        return R.layout.fragment_scan_barcode;
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_scan_barcode, container, false);
+        unbinder = ButterKnife.bind(this, view);
+        return view;
     }
 
     @Override

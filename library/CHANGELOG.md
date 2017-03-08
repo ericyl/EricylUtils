@@ -14,3 +14,8 @@
 * WeakHandler 取消 Deprecated
 * DownloadAllowedNetworkTypes 新增 ALL 状态码
 
+#### 0.1.3
+* 还原旧版 `recyclerviw`代码
+* 新增 `CountUpTimer`
+* 新增 `DateUtils` 方法
+* 修改 `android support library` 版本为 `25.2.0`

@@ -7,8 +7,20 @@ import android.support.v7.widget.RecyclerView;
 
 public class BaseLinearLayoutManager extends LinearLayoutManager implements IScrollManager {
 
+    /**
+     * @param context Current context, will be used to access resources.
+     */
     public BaseLinearLayoutManager(Context context) {
         super(context);
+    }
+
+    /**
+     * @param context     Current context, will be used to access resources.
+     * @param orientation {@link #HORIZONTAL} or {@link #VERTICAL}
+     */
+    public BaseLinearLayoutManager(Context context, int orientation) {
+        super(context);
+        this.setOrientation(orientation);
     }
 
     @Override

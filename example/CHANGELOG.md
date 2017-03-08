@@ -31,4 +31,9 @@
 #### 0.3.1
 * 更新 Barcode 相关
 
+#### 0.3.2
+* 更新 Base 类
+* 更新 library 版本
+* 新增旧版 RecyclerView 加载更多代码
+
 

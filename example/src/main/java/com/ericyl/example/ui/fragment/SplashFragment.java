@@ -4,12 +4,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.ericyl.example.R;
-import com.ericyl.example.ui.BaseFragment;
 import com.ericyl.example.ui.activity.HomeActivity;
 import com.ericyl.utils.util.ActivityUtils;
 import com.ericyl.utils.util.StringUtils;
@@ -20,6 +21,7 @@ import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
@@ -54,9 +56,12 @@ public class SplashFragment extends BaseFragment {
         return splashFragment;
     }
 
+    @Nullable
     @Override
-    public int getContentViewId() {
-        return R.layout.fragment_splash;
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_splash, container, false);
+        unbinder = ButterKnife.bind(this, view);
+        return view;
     }
 
     @Override

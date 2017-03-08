@@ -19,7 +19,6 @@ import android.widget.Toast;
 import com.ericyl.example.R;
 import com.ericyl.example.event.ChangeThemeEvent;
 import com.ericyl.example.model.FragmentTag;
-import com.ericyl.example.ui.BaseActivity;
 import com.ericyl.example.util.AppProperties;
 import com.ericyl.example.util.BusProvider;
 import com.ericyl.example.util.DatabaseUtils;
@@ -29,6 +28,7 @@ import com.squareup.otto.Subscribe;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -52,13 +52,15 @@ public class SettingActivity extends BaseActivity {
     private ActionBar actionBar;
 
     @Override
-    public int getContentViewId() {
-        return R.layout.activity_setting;
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_setting);
+        unbinder = ButterKnife.bind(this);
     }
 
     @Override
     public void init(@Nullable Bundle savedInstanceState) {
-        initActionBar();
+        initActionBar(toolbar);
         fragmentManager = getFragmentManager();
         if (savedInstanceState != null)
             tags = savedInstanceState.getParcelableArrayList(TAG);
@@ -69,14 +71,6 @@ public class SettingActivity extends BaseActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelableArrayList(TAG, tags);
-    }
-
-    @Override
-    public void initActionBar() {
-        setSupportActionBar(toolbar);
-        actionBar = getSupportActionBar();
-        if (actionBar != null)
-            actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     @Override

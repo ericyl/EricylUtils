@@ -5,14 +5,16 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ericyl.example.R;
 import com.ericyl.example.event.JumpNavPageEvent;
-import com.ericyl.example.ui.BaseFragment;
 import com.ericyl.example.ui.adapter.RVMainAdapter;
+import com.ericyl.example.ui.fragment.BaseFragment;
 import com.ericyl.example.util.AppProperties;
 import com.ericyl.example.util.BusProvider;
 import com.ericyl.utils.util.StringUtils;
@@ -20,6 +22,7 @@ import com.ericyl.utils.util.StringUtils;
 import java.util.Random;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
 
@@ -51,9 +54,12 @@ public class MainFragment extends BaseFragment {
         super.onCreate(savedInstanceState);
     }
 
+    @Nullable
     @Override
-    public int getContentViewId() {
-        return R.layout.fragment_main;
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
+        unbinder = ButterKnife.bind(this, view);
+        return view;
     }
 
 

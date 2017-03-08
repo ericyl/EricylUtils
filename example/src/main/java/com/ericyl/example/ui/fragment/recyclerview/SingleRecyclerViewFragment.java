@@ -4,12 +4,14 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.dgreenhalgh.android.simpleitemdecoration.linear.EndOffsetItemDecoration;
 import com.ericyl.example.R;
-import com.ericyl.example.ui.BaseFragment;
 import com.ericyl.example.ui.adapter.RVSingleAdapter;
+import com.ericyl.example.ui.fragment.BaseFragment;
 import com.ericyl.utils.annotation.LoadStatus;
 import com.ericyl.utils.ui.widget.LoadingLayout;
 import com.ericyl.utils.ui.widget.support.recyclerview.BaseLinearLayoutManager;
@@ -21,6 +23,7 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
@@ -51,9 +54,12 @@ public class SingleRecyclerViewFragment extends BaseFragment {
     private int maxCount = 10;
     private int count = 1;
 
+    @Nullable
     @Override
-    public int getContentViewId() {
-        return R.layout.fragment_recycler_view;
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_recycler_view, container, false);
+        unbinder = ButterKnife.bind(this, view);
+        return view;
     }
 
     @Override

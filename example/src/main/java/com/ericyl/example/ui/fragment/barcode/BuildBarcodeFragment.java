@@ -15,7 +15,9 @@ import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -24,7 +26,7 @@ import android.widget.ImageView;
 import com.ericyl.example.R;
 import com.ericyl.example.event.InitFabEvent;
 import com.ericyl.example.model.ui.FabButton;
-import com.ericyl.example.ui.BaseFragment;
+import com.ericyl.example.ui.fragment.BaseFragment;
 import com.ericyl.example.util.BusProvider;
 import com.ericyl.utils.util.ColorUtils;
 import com.ericyl.utils.util.PermissionUtils;
@@ -42,6 +44,7 @@ import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnTextChanged;
 import rx.Observable;
@@ -78,9 +81,12 @@ public class BuildBarcodeFragment extends BaseFragment implements View.OnClickLi
         this.fabMoreMenu = fabMoreMenu;
     }
 
+    @Nullable
     @Override
-    public int getContentViewId() {
-        return R.layout.fragment_build_barcode;
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_build_barcode, container, false);
+        unbinder = ButterKnife.bind(this, view);
+        return view;
     }
 
     @Override

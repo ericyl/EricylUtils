@@ -1,4 +1,4 @@
-# Demo
+# Example
 
 Copyright © 2016 by Ericyl  
 Contact me: [admin@ericyl.com](mailto:admin@ericyl.com) / [Gmail](mailto:ericyl.studio@gmail.com)
