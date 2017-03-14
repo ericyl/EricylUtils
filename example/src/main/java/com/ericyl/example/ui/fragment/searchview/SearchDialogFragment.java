@@ -33,6 +33,7 @@ import android.widget.Filter;
 import com.ericyl.example.R;
 import com.ericyl.example.model.ui.SearchInfo;
 import com.ericyl.example.ui.adapter.RVSearchSuggestionAdapter;
+import com.ericyl.example.ui.fragment.recyclerview.IClickListener;
 import com.ericyl.example.util.AppProperties;
 import com.ericyl.example.util.DatabaseUtils;
 import com.ericyl.example.util.SearchSuggestionTableUtils;
@@ -49,7 +50,7 @@ import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 
-public class SearchDialogFragment extends DialogFragment implements DialogInterface.OnKeyListener, View.OnClickListener, CustomSearchView.ISearchViewController, SearchView.OnQueryTextListener, RVSearchSuggestionAdapter.IClickListener {
+public class SearchDialogFragment extends DialogFragment implements DialogInterface.OnKeyListener, View.OnClickListener, CustomSearchView.ISearchViewController, SearchView.OnQueryTextListener, IClickListener {
 
     private List<SearchInfo> suggestions = new ArrayList<>();
     private List<SearchInfo> allSuggestions = new ArrayList<>();

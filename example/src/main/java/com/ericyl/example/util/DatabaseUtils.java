@@ -25,6 +25,9 @@ public class DatabaseUtils {
         try {
             net.sqlcipher.database.SQLiteDatabase.loadLibs(context);
             File file = AppProperties.getDatabaseDir(DatabaseUtils.DATA_DATABASE_NAME + ".db");
+            if (!file.exists() && file.mkdirs()) {
+                file.delete();
+            }
             database = net.sqlcipher.database.SQLiteDatabase.openOrCreateDatabase(file, "test", null);
             new AESDBOpenHelper(context).onCreate(database);
         } catch (Exception e) {

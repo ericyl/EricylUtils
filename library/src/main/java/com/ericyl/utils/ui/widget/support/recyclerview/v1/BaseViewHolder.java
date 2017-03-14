@@ -14,19 +14,19 @@ public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
         super(LayoutInflater.from(context).inflate(id, viewGroup, false));
     }
 
-    protected abstract void fitEvents(int position);
+    public abstract void fitEvents(int position);
 
     /**
      * 对指定position的item进行数据的适配
      *
      * @param position position
      */
-    protected abstract void fitData(int position);
+    public abstract void fitData(int position);
 
     /**
      * 对FooterView进行数据的适配
      *
      * @param loadStatus data status {@link LoadStatus}
      */
-    protected abstract void fitFooterData(@LoadStatus int loadStatus);
+    public abstract void fitFooterData(@LoadStatus int loadStatus);
 }
