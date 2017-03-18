@@ -2,7 +2,6 @@ package com.ericyl.example.ui.activity;
 
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.IdRes;
@@ -11,19 +10,23 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.text.TextPaint;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ericyl.example.R;
 import com.ericyl.example.event.ChangeThemeEvent;
 import com.ericyl.example.event.JumpNavPageEvent;
-import com.ericyl.example.ui.fragment.BaseFragment;
 import com.ericyl.example.ui.fragment.AboutFragment;
+import com.ericyl.example.ui.fragment.BaseFragment;
 import com.ericyl.example.ui.fragment.FeedbackFragment;
 import com.ericyl.example.ui.fragment.HelpFragment;
 import com.ericyl.example.ui.fragment.barcode.BarcodeFragment;
@@ -175,6 +178,8 @@ public class HomeActivity extends BaseActivity {
 
 
         });
+        setMenuCounter(R.id.nav_map, "100");
+        setMenuCounter(R.id.nav_picture, getString(R.string.app_name));
     }
 
 
@@ -202,6 +207,32 @@ public class HomeActivity extends BaseActivity {
             default:
                 break;
         }
+    }
+
+    /**
+     * @param itemId Menu ItemId
+     * @param msg    {@link TextView #setText(CharSequence)}
+     */
+    public void setMenuCounter(@IdRes int itemId, String msg) {
+        LinearLayout layout = (LinearLayout) layoutDrawerMenu.getMenu().findItem(itemId).getActionView();
+        TextView view = (TextView) layout.findViewById(R.id.tv_badge);
+        if (TextUtils.isEmpty(msg)) {
+            view.setVisibility(View.GONE);
+            return;
+        } else
+            view.setVisibility(View.VISIBLE);
+        try {
+            int value = Integer.valueOf(msg);
+            if (value > 99)
+                msg = "99+";
+            view.setTextColor(ContextCompat.getColor(view.getContext(), R.color.colorPrimary));
+            TextPaint textPaint = view.getPaint();
+            textPaint.setFakeBoldText(true);
+        } catch (Exception e) {
+            view.setBackgroundResource(R.drawable.tv_badge_rectangle);
+            view.setPadding(8, 0, 8, 0);
+        }
+        view.setText(msg);
     }
 
 
@@ -236,14 +267,10 @@ public class HomeActivity extends BaseActivity {
         if (!tag.equals(HomeFragment.class.getSimpleName())) {
             menuItemSetChecked(new JumpNavPageEvent(R.id.nav_main));
         } else {
-            /**
-             * double click the back button to exit
-             */
+            // double click the back button to exit
             if (doubleBackToExitPressedOnce) {
-//                super.onBackPressed();
-                /**
-                 * like Wechat
-                 */
+                // super.onBackPressed();
+                // like Wechat
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.addCategory(Intent.CATEGORY_HOME);
@@ -274,9 +301,8 @@ public class HomeActivity extends BaseActivity {
 
     @Subscribe
     public void changeTheme(ChangeThemeEvent event) {
-        if (Build.VERSION.SDK_INT >= 11) {
+//        if (Build.VERSION.SDK_INT >= 11)
             recreate();
-        }
     }
 
     @Override

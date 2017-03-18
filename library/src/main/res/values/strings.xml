@@ -53,5 +53,6 @@
     <string name="last_day_hour_minute">%1$d天%2$d时%3$d分</string>
     <string name="last_hour_minute">%1$d时%2$d分</string>
     <string name="last_minute">%1$d分</string>
+    <string name="icon">图标</string>
 
 </resources>

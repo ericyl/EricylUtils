@@ -36,4 +36,7 @@
 * 更新 library 版本
 * 新增旧版 RecyclerView 加载更多代码
 
+#### 0.3.3
+* 新增 Menu 小红点功能
+
 

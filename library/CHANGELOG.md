@@ -19,3 +19,7 @@
 * 新增 `CountUpTimer`
 * 新增 `DateUtils` 方法
 * 修改 `android support library` 版本为 `25.2.0`
+
+#### 0.1.4
+* 新增 `ActionBadgeLayout`
+* 修改 `android support library` 版本为 `25.3.0`

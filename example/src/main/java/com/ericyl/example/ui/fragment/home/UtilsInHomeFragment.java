@@ -8,13 +8,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.ericyl.example.R;
 import com.ericyl.example.ui.adapter.RVUtilsInHomeAdapter;
 import com.ericyl.example.ui.fragment.BaseSearchFragment;
 import com.ericyl.example.util.BusProvider;
+import com.ericyl.utils.ui.widget.ActionBadgeLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -58,6 +61,16 @@ public class UtilsInHomeFragment extends BaseSearchFragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_utils, menu);
         super.onCreateOptionsMenu(menu, inflater);
+        MenuItem menuItem = menu.findItem(R.id.action_extension);
+        ActionBadgeLayout actionBadgeLayout = (ActionBadgeLayout) menuItem.getActionView();
+        actionBadgeLayout.setText("1000");
+        actionBadgeLayout.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "aaaa", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 

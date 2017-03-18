@@ -32,4 +32,8 @@
         <item name="finishMessage">@string/message_finish</item>
     </style>
 
+    <style name="defaultStyle_ActionBadgeLayout">
+        <item name="badgeColor">?attr/colorPrimary</item>
+    </style>
+
 </resources>

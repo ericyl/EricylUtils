@@ -9,6 +9,7 @@
     <dimen name="text_large_size">14sp</dimen>
     <dimen name="text_medium_size">12sp</dimen>
     <dimen name="text_small_size">10sp</dimen>
+    <dimen name="text_small2_size">8sp</dimen>
 
     <dimen name="activity_xlarge_margin">64dp</dimen>
     <dimen name="activity_large_margin">48dp</dimen>

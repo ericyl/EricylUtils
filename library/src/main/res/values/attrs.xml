@@ -195,4 +195,9 @@
              {@link android.text.InputType#TYPE_DATETIME_VARIATION_TIME}. -->
         <flag name="time" value="0x00000024" />
     </attr>
+
+    <declare-styleable name="ActionBadgeLayout">
+        <attr name="icon" format="reference" />
+        <attr name="badgeColor" format="reference" />
+    </declare-styleable>
 </resources>
