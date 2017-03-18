@@ -13,7 +13,7 @@
         android:id="@+id/tv_badge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_mamrginLeft="@dimen/activity_small_margin"
+        android:layout_marginLeft="@dimen/activity_small_margin"
         android:layout_marginTop="@dimen/view_medium_margin"
         android:paddingLeft="@dimen/view_small_margin"
         android:paddingRight="@dimen/view_small_margin"
