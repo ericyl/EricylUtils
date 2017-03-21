@@ -21,6 +21,7 @@ import com.ericyl.example.event.ChangeThemeEvent;
 import com.ericyl.example.model.FragmentTag;
 import com.ericyl.example.util.AppProperties;
 import com.ericyl.example.util.BusProvider;
+import com.ericyl.example.util.CacheUtil;
 import com.ericyl.example.util.DatabaseUtils;
 import com.ericyl.utils.util.StringUtils;
 import com.squareup.otto.Subscribe;
@@ -155,19 +156,31 @@ public class SettingActivity extends BaseActivity {
 
     public static class SettingFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
 
+        private PreferenceManager preferenceManager;
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.preference_setting);
+            preferenceManager = getPreferenceManager();
         }
 
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-            getPreferenceManager().findPreference(getString(R.string.key_splash_screen_second)).setEnabled(!sharedPreferences.getBoolean(getString(R.string.key_disable_splash_screen), false));
-
+            preferenceManager.findPreference(getString(R.string.key_splash_screen_second)).setEnabled(!sharedPreferences.getBoolean(getString(R.string.key_disable_splash_screen), false));
+            CacheUtil.getInstance().getCacheSize(AppProperties.getContext()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<CharSequence>() {
+                @Override
+                public void call(CharSequence charSequence) {
+                    preferenceManager.findPreference(getString(R.string.key_clear_cache)).setSummary(String.format(getString(R.string.cache_size), charSequence));
+                }
+            }, new Action1<Throwable>() {
+                @Override
+                public void call(Throwable throwable) {
+                    throwable.printStackTrace();
+                }
+            });
         }
 
         @Override
@@ -189,8 +202,10 @@ public class SettingActivity extends BaseActivity {
 
         @Override
         public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-            if (preference.getFragment() != null)
+            if (preference.getFragment() != null) {
                 BusProvider.getInstance().post(new FragmentTag(preference.getTitle(), preference.getFragment()));
+                return true;
+            }
             if (preference.getKey().equals(getString(R.string.key_clear_search_history))) {
                 Observable.create(new Observable.OnSubscribe<Void>() {
 
@@ -209,6 +224,19 @@ public class SettingActivity extends BaseActivity {
                     @Override
                     public void call(Throwable throwable) {
                         Toast.makeText(AppProperties.getContext(), R.string.clear_search_history_failed, Toast.LENGTH_SHORT).show();
+                    }
+                });
+            } else if (preference.getKey().equals(getString(R.string.key_clear_cache))) {
+                preferenceManager.findPreference(getString(R.string.key_clear_cache)).setSummary(getString(R.string.starting_clear_cache));
+                CacheUtil.getInstance().clearCache(AppProperties.getContext()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<CharSequence>() {
+                    @Override
+                    public void call(CharSequence charSequence) {
+                        preferenceManager.findPreference(getString(R.string.key_clear_cache)).setSummary(String.format(getString(R.string.cache_size), charSequence));
+                    }
+                }, new Action1<Throwable>() {
+                    @Override
+                    public void call(Throwable throwable) {
+                        throwable.printStackTrace();
                     }
                 });
             }

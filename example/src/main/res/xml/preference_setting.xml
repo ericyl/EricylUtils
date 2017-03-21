@@ -36,12 +36,13 @@
     <PreferenceCategory android:title="@string/other">
 
         <Preference
+            android:key="@string/key_clear_cache"
             android:persistent="false"
             android:title="@string/clear_cache">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:targetClass="@string/class_name_clear_cache"
-                android:targetPackage="@string/package_name" />
+            <!--<intent-->
+                <!--android:action="android.intent.action.VIEW"-->
+                <!--android:targetClass="@string/class_name_clear_cache"-->
+                <!--android:targetPackage="@string/package_name" />-->
         </Preference>
 
         <Preference

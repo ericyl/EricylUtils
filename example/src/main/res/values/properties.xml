@@ -22,4 +22,5 @@
     <string name="key_add_to_gallery">AddToGallery</string>
     <string name="key_save_photo_other_function">SavePhotoOtherFunction</string>
     <string name="key_save_storage">TakePhotoStorage</string>
+    <string name="key_clear_cache">key_clear_cache</string>
 </resources>

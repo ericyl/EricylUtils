@@ -65,4 +65,5 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'net.zetetic:android-database-sqlcipher:3.5.6@aar'
     compile project(':library')
+    compile 'com.github.bumptech.glide:glide:3.7.0'
 }
