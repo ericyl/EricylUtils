@@ -5,7 +5,6 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.LayoutRes;
-import android.support.design.internal.ScrimInsetsFrameLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;

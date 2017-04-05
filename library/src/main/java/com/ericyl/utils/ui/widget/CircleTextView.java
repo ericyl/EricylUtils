@@ -9,16 +9,16 @@ import android.graphics.Paint;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.AppCompatTextView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
 import com.ericyl.utils.R;
 import com.ericyl.utils.util.ColorUtils;
 
 import java.util.Random;
 
-public class CircleTextView extends TextView {
+public class CircleTextView extends AppCompatTextView {
 
 
     @ColorInt

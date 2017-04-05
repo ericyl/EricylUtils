@@ -3,7 +3,6 @@ package com.ericyl.utils.ui.widget.translucent;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
-import android.support.design.internal.ScrimInsetsFrameLayout;
 import android.util.AttributeSet;
 
 import com.ericyl.utils.util.OSInfoUtils;

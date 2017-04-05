@@ -4,14 +4,14 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.support.v7.content.res.AppCompatResources;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.util.TypedValue;
-import android.widget.ImageView;
 
 import com.ericyl.utils.R;
 
 
-public class TintImageButton extends ImageView {
+public class TintImageButton extends AppCompatImageView {
 
     private ColorStateList tint;
 

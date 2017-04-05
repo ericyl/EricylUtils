@@ -200,4 +200,8 @@
         <attr name="icon" format="reference" />
         <attr name="badgeColor" format="reference" />
     </declare-styleable>
+    <declare-styleable name="MineScrimInsetsFrameLayout">
+        <attr name="insetForeground" format="color|reference" />
+    </declare-styleable>
+
 </resources>

@@ -23,3 +23,4 @@
 #### 0.1.4
 * 新增 `ActionBadgeLayout`
 * 修改 `android support library` 版本为 `25.3.0`
+* 拷贝出 `ScrimInsetsFrameLayout`

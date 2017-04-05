@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -207,23 +206,32 @@ public class BarcodeFragment extends BaseFragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        List<Fragment> fragments = getChildFragmentManager().getFragments();
-        if (fragments != null) {
-            for (Fragment fragment : fragments) {
-                fragment.onActivityResult(requestCode, resultCode, data);
-            }
-        }
+//        List<Fragment> fragments = getChildFragmentManager().getFragments();
+//        if (fragments != null) {
+//            for (Fragment fragment : fragments) {
+//                fragment.onActivityResult(requestCode, resultCode, data);
+//            }
+//        }
+        if (buildBarcodeFragment != null)
+            buildBarcodeFragment.onActivityResult(requestCode, resultCode, data);
+        if (scanBarcodeFragment != null)
+            scanBarcodeFragment.onActivityResult(requestCode, resultCode, data);
+
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        List<Fragment> fragments = getChildFragmentManager().getFragments();
-        if (fragments != null) {
-            for (Fragment fragment : fragments) {
-                fragment.onRequestPermissionsResult(requestCode, permissions, grantResults);
-            }
-        }
+//        List<Fragment> fragments = getChildFragmentManager().getFragments();
+//        if (fragments != null) {
+//            for (Fragment fragment : fragments) {
+//                fragment.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//            }
+//        }
+        if (buildBarcodeFragment != null)
+            buildBarcodeFragment.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (scanBarcodeFragment != null)
+            scanBarcodeFragment.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     @Subscribe
