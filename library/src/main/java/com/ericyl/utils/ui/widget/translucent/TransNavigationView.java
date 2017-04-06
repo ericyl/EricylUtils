@@ -70,10 +70,10 @@ public class TransNavigationView extends ScrimInsetsFrameLayout {
             navigationView.setItemBackground(itemBackground);
 
             if (a.hasValue(R.styleable.TransNavigationView_transHeaderLayout))
-                inflateHeaderView(a.getResourceId(R.styleable.TransNavigationView_transHeaderLayout, 0));
+                navigationView.inflateHeaderView(a.getResourceId(R.styleable.TransNavigationView_transHeaderLayout, 0));
 
             if (a.hasValue(R.styleable.TransNavigationView_transMenu))
-                inflateMenu(a.getResourceId(R.styleable.TransNavigationView_transMenu, 0));
+                navigationView.inflateMenu(a.getResourceId(R.styleable.TransNavigationView_transMenu, 0));
 
             if (OSInfoUtils.checkHasNavigationBar(context) && !DisplayUtils.isLandscapeOrientation(context))
                 navigationView.setPadding(navigationView.getPaddingLeft(), navigationView.getPaddingTop(), navigationView.getPaddingRight(), navigationView.getPaddingBottom() + OSInfoUtils.getNavigationBarHeight(context));
