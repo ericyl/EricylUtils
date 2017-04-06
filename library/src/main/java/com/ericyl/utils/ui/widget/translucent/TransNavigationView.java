@@ -69,8 +69,11 @@ public class TransNavigationView extends ScrimInsetsFrameLayout {
             navigationView.setItemTextColor(itemTextColor);
             navigationView.setItemBackground(itemBackground);
 
-            if (a.hasValue(R.styleable.TransNavigationView_transHeaderLayout))
-                navigationView.inflateHeaderView(a.getResourceId(R.styleable.TransNavigationView_transHeaderLayout, 0));
+            if (a.hasValue(R.styleable.TransNavigationView_transHeaderLayout)) {
+                @LayoutRes
+                int headerLayoutId = a.getResourceId(R.styleable.TransNavigationView_transHeaderLayout, 0);
+                navigationView.inflateHeaderView(headerLayoutId);
+            }
 
             if (a.hasValue(R.styleable.TransNavigationView_transMenu))
                 navigationView.inflateMenu(a.getResourceId(R.styleable.TransNavigationView_transMenu, 0));
@@ -88,7 +91,7 @@ public class TransNavigationView extends ScrimInsetsFrameLayout {
         return navigationView.inflateHeaderView(res);
     }
 
-    public void inflateMenu(@LayoutRes int res) {
+    public void inflateMenu(int res) {
         navigationView.inflateMenu(res);
     }
 
