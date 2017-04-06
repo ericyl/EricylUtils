@@ -1,5 +1,6 @@
 package com.ericyl.utils.ui.widget.translucent;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -45,6 +46,7 @@ public class TransNavigationView extends ScrimInsetsFrameLayout {
         return navigationView;
     }
 
+    @SuppressLint("ResourceType")
     private void init(Context context, AttributeSet attrs, int defStyleAttr) {
         View view = LayoutInflater.from(context).inflate(R.layout.layout_trans_navigation_view, this, true);
         navigationView = (NavigationView) view.findViewById(R.id.navigation_view);
@@ -69,11 +71,8 @@ public class TransNavigationView extends ScrimInsetsFrameLayout {
             navigationView.setItemTextColor(itemTextColor);
             navigationView.setItemBackground(itemBackground);
 
-            if (a.hasValue(R.styleable.TransNavigationView_transHeaderLayout)) {
-                @LayoutRes
-                int headerLayoutId = a.getResourceId(R.styleable.TransNavigationView_transHeaderLayout, 0);
-                navigationView.inflateHeaderView(headerLayoutId);
-            }
+            if (a.hasValue(R.styleable.TransNavigationView_transHeaderLayout))
+                navigationView.inflateHeaderView(a.getResourceId(R.styleable.TransNavigationView_transHeaderLayout, 0));
 
             if (a.hasValue(R.styleable.TransNavigationView_transMenu))
                 navigationView.inflateMenu(a.getResourceId(R.styleable.TransNavigationView_transMenu, 0));
