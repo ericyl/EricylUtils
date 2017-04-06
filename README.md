@@ -1,5 +1,7 @@
 # EricylUtils
 
+[![Build Status](https://travis-ci.org/ericyl/EricylUtils.svg?branch=master)](https://travis-ci.org/ericyl/EricylUtils)
+
 Copyright © 2016 by Ericyl
 Contact me: [admin@ericyl.com](mailto:admin@ericyl.com) / [Gmail](mailto:ericyl.studio@gmail.com)
 
