@@ -54,5 +54,6 @@
     <string name="last_hour_minute">%1$d时%2$d分</string>
     <string name="last_minute">%1$d分</string>
     <string name="icon">图标</string>
+    <string name="error">错误</string>
 
 </resources>

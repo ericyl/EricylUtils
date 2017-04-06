@@ -40,4 +40,5 @@
 * 新增 Menu 小红点功能
 * 新增 清理缓存 功能
 * 删除 getChildFragment().getFragments() 方法
+* 根据 Lint 优化 example
 
