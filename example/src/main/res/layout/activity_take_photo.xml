@@ -12,13 +12,13 @@
         android:id="@+id/btn_take_photo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Take Photo"/>
+        android:text="@string/take_photo"/>
 
     <Button
         android:id="@+id/btn_get_photo_from_gallery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Get Photo From Gallery"/>
+        android:text="@string/get_photo_from_gallery"/>
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/img_photo"

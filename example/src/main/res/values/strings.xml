@@ -116,6 +116,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="starting_clear_cache">正在清理中，请稍等&#8230;</string>
     <string name="cache_size">当前缓存大小：%s</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="get_photo_from_gallery">Get Photo From Gallery</string>
+    <string name="back">后退</string>
 
 
 </resources>

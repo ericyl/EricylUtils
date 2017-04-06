@@ -273,7 +273,7 @@ public class SettingActivity extends BaseActivity {
         private void setNightMode(@AppCompatDelegate.NightMode int nightMode) {
             AppCompatDelegate.setDefaultNightMode(nightMode);
 
-            if (Build.VERSION.SDK_INT >= 11) {
+            if (Build.VERSION.SDK_INT >= 15) {
                 getActivity().recreate();
                 BusProvider.getInstance().post(new ChangeThemeEvent());
             }

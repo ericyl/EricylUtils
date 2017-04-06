@@ -1,3 +1,4 @@
+<!--TODO This tag and its children can be replaced by one `<TextView/>` and a compound drawable-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -9,9 +10,10 @@
 
     <ImageView
         android:id="@+id/img_icon"
-        android:tint="@color/grey"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/icon"
+        android:tint="@color/grey" />
 
     <TextView
         android:id="@+id/tv_title"
