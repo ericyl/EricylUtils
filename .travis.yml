@@ -25,7 +25,7 @@ android:
     # - addon-google_apis-google-25
     # Specify at least one system image,
     # if you need to run emulator(s) during your tests
-    - sys-img-armeabi-v7a-android-25
+    # - sys-img-armeabi-v7a-android-25
     - sys-img-armeabi-v7a-android-24
     # - sys-img-x86-android-25
 
